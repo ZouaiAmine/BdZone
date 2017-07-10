@@ -1,0 +1,6 @@
+entities\Trainee.class
+entities\Category.class
+entities\Admin.class
+entities\SuperVisor.class
+entities\Question.class
+entities\CategoryType.class
