@@ -19,10 +19,11 @@ public class Answer implements Serializable {
 
 
 	@ManyToOne
-	@JoinColumn(name="idSuperVisor",referencedColumnName="id",insertable=false,updatable=false)
+	@JoinColumn(name="idSuperVisor",referencedColumnName="id_SV",insertable=false,updatable=false)
 	private SuperVisor superVisor ;
+
 	@ManyToOne
-	@JoinColumn(name="idQuestion",referencedColumnName="id",insertable=false,updatable=false)
+	@JoinColumn(name="idQuestion",referencedColumnName="idQuestion",insertable=false,updatable=false)
 	private Question question ;
 	
 	
@@ -65,5 +66,27 @@ public class Answer implements Serializable {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public AnswerPK getAnswerPK() {
+		return answerPK;
+	}
+	public void setAnswerPK(AnswerPK answerPK) {
+		this.answerPK = answerPK;
+	}
+	public SuperVisor getSuperVisor() {
+		return superVisor;
+	}
+	public void setSuperVisor(SuperVisor superVisor) {
+		this.superVisor = superVisor;
+	}
+	
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+	
+	
+	
 }
    

@@ -1,5 +1,7 @@
+entities\Answer.class
 entities\Trainee.class
 entities\Category.class
+entities\AnswerPK.class
 entities\Admin.class
 entities\SuperVisor.class
 entities\Question.class

@@ -20,6 +20,14 @@ public class Trainee implements Serializable {
 	private String passwordTr;
 	private static final long serialVersionUID = 1L;
 
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
 	@OneToMany(mappedBy="trainee")
 	private List<Question> questions ;
 	

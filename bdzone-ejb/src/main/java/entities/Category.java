@@ -17,6 +17,8 @@ public class Category implements Serializable {
 	@Id
 	private int id_Catg;
 	private String module;
+	
+
 	@Enumerated(EnumType.STRING)
 	private CategoryType categoryType ; 
 	
@@ -28,6 +30,8 @@ public class Category implements Serializable {
 
 	@ManyToMany
 	private List<SuperVisor> superVisors ;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public Category() {
@@ -56,6 +60,30 @@ public class Category implements Serializable {
 
 	public void setCategoryType(CategoryType categoryType) {
 		this.categoryType = categoryType;
+	}
+
+	public Admin getAdministrateur() {
+		return administrateur;
+	}
+
+	public void setAdministrateur(Admin administrateur) {
+		this.administrateur = administrateur;
+	}
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+
+	public List<SuperVisor> getSuperVisors() {
+		return superVisors;
+	}
+
+	public void setSuperVisors(List<SuperVisor> superVisors) {
+		this.superVisors = superVisors;
 	}
 
 }

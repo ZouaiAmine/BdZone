@@ -55,5 +55,19 @@ public class Admin implements Serializable {
 	public void setUsernameAd(String usernameAd) {
 		this.usernameAd = usernameAd;
 	}
+	/*
+	public List<Question> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
+	*/
+	public List<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 
 }

@@ -1,6 +1,8 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -25,6 +27,13 @@ public class Question implements Serializable {
 	@ManyToOne
 	private Admin administrateur ;
 	
+	@OneToMany(mappedBy="question")
+	private List<Answer> answers ;
+	
+	@ManyToOne
+	private SuperVisor superVisor ;
+	
+	
 	public Question() {
 		super();
 	}   
@@ -32,6 +41,34 @@ public class Question implements Serializable {
 		return this.idQuestion;
 	}
 
+	public Trainee getTrainee() {
+		return trainee;
+	}
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+	public Admin getAdministrateur() {
+		return administrateur;
+	}
+	public void setAdministrateur(Admin administrateur) {
+		this.administrateur = administrateur;
+	}
+	
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+	
 	public void setIdQuestion(int idQuestion) {
 		this.idQuestion = idQuestion;
 	}
