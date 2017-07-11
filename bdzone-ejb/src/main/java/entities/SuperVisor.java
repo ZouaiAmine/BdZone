@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,9 @@ public class SuperVisor implements Serializable {
 	private String password;
 	private static final long serialVersionUID = 1L;
 
+	@ManyToMany(mappedBy="superVisors")
+	private List<Category> categories ;
+	
 	public SuperVisor() {
 		super();
 	}   

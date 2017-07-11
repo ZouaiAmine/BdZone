@@ -16,6 +16,15 @@ public class Question implements Serializable {
 	private int idQuestion;
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
+	private Trainee trainee ;
+	
+	@ManyToOne
+	private Category category ;
+	
+	@ManyToOne
+	private Admin administrateur ;
+	
 	public Question() {
 		super();
 	}   

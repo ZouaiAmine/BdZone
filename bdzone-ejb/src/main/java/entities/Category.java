@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -18,8 +20,14 @@ public class Category implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private CategoryType categoryType ; 
 	
+	@ManyToOne
+	private Admin administrateur ;
 	
+	@OneToMany(mappedBy="category")
+	private List<Question> questions ;
 
+	@ManyToMany
+	private List<SuperVisor> superVisors ;
 	private static final long serialVersionUID = 1L;
 
 	public Category() {

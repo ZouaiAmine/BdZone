@@ -2,6 +2,8 @@ package entities;
 
 import java.io.Serializable;
 import java.lang.String;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -13,17 +15,20 @@ import javax.persistence.*;
 public class Admin implements Serializable {
 
 	   
-	public String getUsernameAd() {
-		return usernameAd;
-	}
-	public void setUsernameAd(String usernameAd) {
-		this.usernameAd = usernameAd;
-	}
-
+	
 	@Id
 	private int id_Ad;
 	private String passwordAd;
 	private String usernameAd ;
+	
+	@OneToMany(mappedBy="administrateur")
+	private List<Question> questions ;
+	
+	
+	@OneToMany(mappedBy="administrateur")
+	private List<Category> categories ;
+	
+	
 	private static final long serialVersionUID = 1L;
 
 	public Admin() {
@@ -44,4 +49,11 @@ public class Admin implements Serializable {
 		this.passwordAd = passwordAd;
 	}
    
+	public String getUsernameAd() {
+		return usernameAd;
+	}
+	public void setUsernameAd(String usernameAd) {
+		this.usernameAd = usernameAd;
+	}
+
 }
