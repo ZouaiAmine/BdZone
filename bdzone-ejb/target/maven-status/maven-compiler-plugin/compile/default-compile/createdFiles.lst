@@ -1,8 +1,11 @@
+services\usermanagement\Questions.class
 entities\Answer.class
 entities\Trainee.class
 entities\Category.class
+services\usermanagement\QuestionsRemote.class
 entities\AnswerPK.class
 entities\Admin.class
 entities\SuperVisor.class
 entities\Question.class
 entities\CategoryType.class
+services\usermanagement\QuestionsLocal.class

@@ -15,6 +15,7 @@ import javax.persistence.*;
 public class Trainee implements Serializable {
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_Tr;
 	private String usernameTr;
 	private String passwordTr;

@@ -92,5 +92,6 @@
     <module>bdzone-ejb</module>
     <module>bdzone-web</module>
     <module>bdzone-ear</module>
+    <module>bdzone-client</module>
   </modules>
 </project>
