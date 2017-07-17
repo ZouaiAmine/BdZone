@@ -28,5 +28,13 @@ public class Questions implements QuestionsRemote, QuestionsLocal {
     	entityManager.persist(question);
     }
     
+    public void updateQuestion(Question question) {
+    	entityManager.merge(question);
+    }
+    
+    public void deleteQuestion(Question question) {
+    	entityManager.remove(question);
+    }
 
+    
 }

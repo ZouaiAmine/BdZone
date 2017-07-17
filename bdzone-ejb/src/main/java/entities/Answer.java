@@ -19,7 +19,7 @@ public class Answer implements Serializable {
 
 
 	@ManyToOne
-	@JoinColumn(name="idSuperVisor",referencedColumnName="id_SV",insertable=false,updatable=false)
+	@JoinColumn(name="idSuperVisor",referencedColumnName="id",insertable=false,updatable=false)
 	private SuperVisor superVisor ;
 
 	@ManyToOne

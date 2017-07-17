@@ -1,7 +1,7 @@
 package entities;
 
+import entities.User;
 import java.io.Serializable;
-import java.lang.String;
 import java.util.List;
 
 import javax.persistence.*;
@@ -11,17 +11,15 @@ import javax.persistence.*;
  *
  */
 @Entity
-
-public class SuperVisor implements Serializable {
+//@DiscriminatorValue(value="SuperVisor")
+public class SuperVisor extends User implements Serializable {
 
 	   
-	@Id
-	private int id_SV;
-	private String username;
-	private String password;
+	
+	private int experience;
 	private static final long serialVersionUID = 1L;
 
-	@ManyToMany(mappedBy="superVisors")
+	@ManyToMany
 	private List<Category> categories ;
 
 	@OneToMany(mappedBy="superVisor")
@@ -51,30 +49,18 @@ public class SuperVisor implements Serializable {
 		this.answers = answers;
 	}
 	
+
+	
 	
 	public SuperVisor() {
 		super();
 	}   
-	public int getId_SV() {
-		return this.id_SV;
+	public int getExperience() {
+		return this.experience;
 	}
 
-	public void setId_SV(int id_SV) {
-		this.id_SV = id_SV;
-	}   
-	public String getUsername() {
-		return this.username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}   
-	public String getPassword() {
-		return this.password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setExperience(int experience) {
+		this.experience = experience;
 	}
    
 }

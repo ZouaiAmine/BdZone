@@ -18,7 +18,11 @@ public class Question implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idQuestion;
 	private static final long serialVersionUID = 1L;
-
+	
+	@OneToMany
+	private List<Keyword> keywords ;
+	
+	
 	@ManyToOne
 	private Trainee trainee ;
 	
@@ -34,10 +38,10 @@ public class Question implements Serializable {
 	@ManyToOne
 	private SuperVisor superVisor ;
 	
-	
+	/*
 	public Question() {
 		super();
-	}   
+	}   */
 	public int getIdQuestion() {
 		return this.idQuestion;
 	}

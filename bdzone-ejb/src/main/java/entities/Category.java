@@ -27,10 +27,10 @@ public class Category implements Serializable {
 	
 	@OneToMany(mappedBy="category")
 	private List<Question> questions ;
-
+	/*
 	@ManyToMany
 	private List<SuperVisor> superVisors ;
-	
+	*/
 	
 	private static final long serialVersionUID = 1L;
 
@@ -77,7 +77,7 @@ public class Category implements Serializable {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-
+/*
 	public List<SuperVisor> getSuperVisors() {
 		return superVisors;
 	}
@@ -85,5 +85,5 @@ public class Category implements Serializable {
 	public void setSuperVisors(List<SuperVisor> superVisors) {
 		this.superVisors = superVisors;
 	}
-
+*/
 }

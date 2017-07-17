@@ -7,10 +7,12 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class AnswerPK implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idSupervisor ;
 	private int idQuestion ;
-	
-	
 	
 	
 	public int getIdSupervisor() {
