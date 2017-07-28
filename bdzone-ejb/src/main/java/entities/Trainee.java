@@ -12,7 +12,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-//@DiscriminatorValue(value="Trainee")
+@DiscriminatorValue(value="Trainee")
 public class Trainee extends User implements Serializable {
 
 	

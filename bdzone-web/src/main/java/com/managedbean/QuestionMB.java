@@ -1,7 +1,9 @@
 package com.managedbean;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 //import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.faces.bean.ViewScoped;
@@ -25,13 +27,61 @@ public class QuestionMB {
 		private String type ;
 		private Admin admin ;
 
+		private String[] selectedCategory;
+	    //private String[] selectedCities2;
+	    private List<String> categories;
+	     
+	    @PostConstruct
+	    public void init() {
+	    	categories = new ArrayList<String>();
+	    	categories.add("JAVA");
+	    	categories.add("ASP.NET");
+	    	categories.add("JSF");
+	    	categories.add("BI");
+	    	categories.add("php");
+	    
+	    }
+		
+		public int getIdQtion() {
+			return idQtion;
+		}
+
+		public void setIdQtion(int idQtion) {
+			this.idQtion = idQtion;
+		}
+
+		public String[] getSelectedCategory() {
+			return selectedCategory;
+		}
+
+		public void setSelectedCategory(String[] selectedCategory) {
+			this.selectedCategory = selectedCategory;
+		}
+
+		public List<String> getCategories() {
+			return categories;
+		}
+
+		public void setCategories(List<String> categories) {
+			this.categories = categories;
+		}
+
+		public void POST() {
+			
+			Trainee trainee =new Trainee() ;
+			Question qtion= new Question() ;
+			qtion.setIdQuestion(idQtion);
+			qtion.setTrainee(trainee);
+			questionsRemote.addQuestion(qtion); ;
+			
+		}
 
 		public void askQuestion() {
 			Trainee trainee =new Trainee() ;
 			Question qtion= new Question() ;
 			qtion.setIdQuestion(idQtion);
 			qtion.setTrainee(trainee);
-			questionsRemote.addQuestion(qtion); ;
+			questionsRemote.addQuestion(qtion); 
 			
 		}
 

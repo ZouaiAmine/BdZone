@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head> 
+<body> 
+
+
+
+<h:form>               
+    <h3 style="margin-top: 0">Welcome 
+    
+    #{loginBean.user.firstName} 
+    </h3>
+    <p>Ask your questions and get answers immediately from the experts in this category...Please write your questions simply and clearly </p>
+    <p:inputTextarea rows="10" cols="50" completeMethod="#{inputTextareaView.completeArea}" queryDelay="750" minQueryLength="4" />
+ 
+    <!-- <h3>AutoResize</h3>
+    <p:inputTextarea rows="6" cols="33" /> -->
+ 
+   
+<h:outputText id="display" />
+</h:form>
+
+
+
+
+
+
+
+		<h:form>
+    <h:panelGrid columns="2" cellpadding="5">
+       
+ 
+        <h:outputLabel for="multiple" value="Multiple:" />
+        <p:selectCheckboxMenu id="multiple" value="#{questionMB.selectedCategory}" label="Categories" multiple="true"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{questionMB.categories}" />
+        </p:selectCheckboxMenu>
+    </h:panelGrid>
+ 
+    <p:commandButton value="Submit" update="displayCategories" oncomplete="PF('categoryDialog').show()" style="margin-top:10px;" />
+ 
+    <p:dialog header="Selected Category" modal="true" showEffect="fade" hideEffect="fade" widgetVar="categoryDialog" width="250">
+        <p:outputPanel id="displayCategories">
+            <p:dataList value="#{questionMB.selectedCategory}" var="category" emptyMessage="No category selected" style="margin-bottom: 10px;">
+                <!-- <f:facet name="header">
+                    Basic
+                </f:facet> -->
+                #{category}
+            </p:dataList>
+ 
+            <!-- <p:dataList value="#{checkboxView.selectedCities2}" var="city" emptyMessage="No cities selected">
+                <f:facet name="header">
+                    Multiple
+                </f:facet>
+                #{city}
+            </p:dataList>
+ -->        
+ </p:outputPanel>
+    </p:dialog>
+</h:form>
+
+</body> 
+</html>

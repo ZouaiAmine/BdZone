@@ -1,0 +1,33 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/login/TemplateLogin.xhtml">
+	<ui:define name="content">
+		<h:form id="login-form">
+			<p:growl autoUpdate="true"></p:growl>
+			<div class="col.s12 input-field">
+				<h:inputText id="username" required="true"
+					requiredMessage="username is required" value="#{loginBean.login}" />
+				<h:outputLabel for="usrname" value="username" />
+			</div>
+
+			<div class="col.s12 input-field">
+				<h:inputText id="password" required="true"
+					requiredMessage="password is required"
+					value="#{loginBean.password}" />
+				<h:outputLabel for="password" value="password" />
+			</div>
+
+			<div class="col.s12 input-field">
+				<h:commandButton action="#{loginBean.doLogin()}" value="Login"
+					styleClass="btn btn-large" />
+			</div>
+			<h:commandButton action="#{loginBean.doLogin()}" value="Subscribe"
+				styleClass="btn btn-large" style="height : 24px; width : 114px;" />
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

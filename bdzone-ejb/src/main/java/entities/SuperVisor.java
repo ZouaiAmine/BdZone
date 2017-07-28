@@ -11,7 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-//@DiscriminatorValue(value="SuperVisor")
+@DiscriminatorValue(value="SuperVisor")
 public class SuperVisor extends User implements Serializable {
 
 	   

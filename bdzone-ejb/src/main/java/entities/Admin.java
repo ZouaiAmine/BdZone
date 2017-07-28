@@ -11,7 +11,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-//@DiscriminatorValue(value="Admin")
+@DiscriminatorValue(value="Admin")
 public class Admin extends User implements Serializable {
 
 	

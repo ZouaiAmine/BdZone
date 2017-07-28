@@ -10,18 +10,19 @@ import javax.persistence.*;
  */
 @Entity
 
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(name="role")
-public abstract class User implements Serializable {
-
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="role")
+public class User implements Serializable {
+//public abstract class User implements Serializable {
 	   
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	
-
+	
 	private String firstName;
 	private String lastName;
+	private String login ;
 	private String eMail;
 	private String password;
 	private static final long serialVersionUID = 1L;
@@ -71,5 +72,12 @@ public abstract class User implements Serializable {
 		this.password = password;
 	}
 	
+
+	public String getLogin() {
+		return login;
+	}
+	public void setLogin(String login) {
+		this.login = login;
+	}
 	
 }

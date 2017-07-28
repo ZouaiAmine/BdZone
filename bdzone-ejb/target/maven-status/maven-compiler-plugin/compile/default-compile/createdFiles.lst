@@ -1,11 +1,14 @@
 entities\Category.class
+services\usermanagement\LoginRemote.class
 entities\Admin.class
 services\usermanagement\Questions.class
 entities\Answer.class
 entities\Trainee.class
 services\usermanagement\QuestionsRemote.class
 entities\AnswerPK.class
+services\usermanagement\Login.class
 entities\User.class
+services\usermanagement\LoginLocal.class
 entities\SuperVisor.class
 entities\Keyword.class
 entities\Question.class
