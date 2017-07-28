@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/admintemplate.xhtml">
+
+	<ui:define name="title">Admin Page</ui:define>
+	<ui:define name="titre">
+		<h1>hello admin:</h1>
+		<h:outputText value="#{loginBean.user.firstName}" />
+		<h:form>
+			<h:commandButton action="#{loginBean.logout()}"
+				value="log-out" />
+		</h:form>
+
+	</ui:define>
+
+	<ui:define name="content">
+		<ui:include src="/User/admin/addCategory.xhtml" />
+	</ui:define>
+
+
+
+</ui:composition>

@@ -19,6 +19,10 @@ public class SuperVisor extends User implements Serializable {
 	private int experience;
 	private static final long serialVersionUID = 1L;
 
+	private Category category ;
+	
+
+
 	@ManyToMany
 	private List<Category> categories ;
 
@@ -63,4 +67,11 @@ public class SuperVisor extends User implements Serializable {
 		this.experience = experience;
 	}
    
+
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 }

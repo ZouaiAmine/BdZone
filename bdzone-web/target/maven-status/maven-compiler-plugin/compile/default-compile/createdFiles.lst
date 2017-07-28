@@ -1,8 +1,10 @@
 com\managedbean\ImagesView.class
 com\managedbean\SubscribtionBean.class
+com\managedbean\CategoryMB.class
 com\managedbean\LoginBean.class
 com\managedbean\AskQuestion.class
 com\managedbean\MenuView.class
 com\managedbean\QuestionMB.class
 com\managedbean\TestBean.class
+filtres\AdminFilter.class
 com\managedbean\InputTextareaView.class

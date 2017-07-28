@@ -12,6 +12,7 @@ import entities.Admin;
 import entities.SuperVisor;
 import entities.Trainee;
 import entities.User;
+//import services.BDmanagement.LoginRemote;
 import services.usermanagement.LoginRemote;
 
 
@@ -37,6 +38,12 @@ public class LoginBean{
 	@EJB
 	LoginRemote loginRemote ;
 	
+	public String logout() {
+
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "/login/login?faces-redirect=true";
+	}
+
 	
 	public String doLogin() {
 		 user = loginRemote.identifierUser(login, password);
@@ -44,13 +51,13 @@ public class LoginBean{
 		if (user instanceof Admin) {
 			setLogin(user.getLogin());
 			//return "/admin/acceuil?faces-redirect=true";
-			return "/admin/acceuil?faces-redirect=true";
+			return "/User/admin/acceuil?faces-redirect=true";
 		} else if (user instanceof SuperVisor) {
 			setLogin(user.getLogin());
-			return "/superVisor/acceuil?faces-redirect=true";
+			return "/User/superVisor/acceuil?faces-redirect=true";
 		} else if (user instanceof Trainee) {
 			setLogin(user.getLogin());
-			return "/trainee/acceuil?faces-redirect=true";
+			return "/User/trainee/acceuil?faces-redirect=true";
 		} else {
 			FacesContext.getCurrentInstance().addMessage("authId:pwdId", new FacesMessage("n'existe pas"));
 			return "/error?faces-redirect=true";

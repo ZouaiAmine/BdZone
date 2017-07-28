@@ -1,4 +1,5 @@
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\SuperVisor.java
+D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\adminmanagement\AdminManagementRemote.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\usermanagement\LoginLocal.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\AnswerPK.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\User.java
@@ -9,8 +10,10 @@ D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\service
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Trainee.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Admin.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\usermanagement\Login.java
+D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\adminmanagement\AdminManagementLocal.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Category.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\usermanagement\QuestionsLocal.java
+D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\services\adminmanagement\AdminManagement.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Answer.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Question.java
 D:\ESPRIT\4SLEAM\Semestre2\JEE\Workspace\bdzone\bdzone-ejb\src\main\java\entities\Keyword.java

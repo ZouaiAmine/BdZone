@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="nom" />
+				<h:inputText value="#{gererLaboBean.labo.nom}" />
+				<h:outputLabel value="presentation" />
+				<h:inputTextarea value="#{gererLaboBean.labo.presentation}" />
+				<h:commandButton action="#{gererLaboBean.ajouterLabo()}" value="Ajouter" />
+			</h:panelGrid>
+
+		</h:form>
+
+
+
+
+</ui:composition>

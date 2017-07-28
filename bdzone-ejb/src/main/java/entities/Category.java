@@ -65,6 +65,8 @@ public class Category implements Serializable {
 	public Admin getAdministrateur() {
 		return administrateur;
 	}
+	
+	
 
 	public void setAdministrateur(Admin administrateur) {
 		this.administrateur = administrateur;
