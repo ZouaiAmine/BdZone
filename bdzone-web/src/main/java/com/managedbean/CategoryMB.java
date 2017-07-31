@@ -24,9 +24,9 @@ public class CategoryMB implements Serializable {
 		category = new Category();
 	}
 
-	public String ajouterLabo() {
-		category = adminManagementRemote.ajouterCateg(category);
-		return "/admin/listeEmploye?faces-redirect=true";
+	public String ajouterCateg() {
+		adminManagementRemote.ajouterCate(category);
+		return "/admin/acceuil?faces-redirect=true";
 
 	}
 

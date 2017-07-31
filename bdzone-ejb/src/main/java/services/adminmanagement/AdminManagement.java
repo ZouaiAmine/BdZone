@@ -21,7 +21,7 @@ import entities.SuperVisor;
  * Session Bean implementation class Login
  */
 @Stateless
-public class AdminManagement implements AdminManagementRemote,AdminManagementLocal {
+public class AdminManagement implements AdminManagementRemote {
 
 	@PersistenceContext(unitName="bdzone-ejb")
 	EntityManager entityManager ;
@@ -35,7 +35,11 @@ public class AdminManagement implements AdminManagementRemote,AdminManagementLoc
 	@Override
 	public Category ajouterCateg(Category category) {
 		
-		return entityManager.merge(category);
+return null;	}
+	@Override
+	public void ajouterCate(Category category) {
+		
+		 entityManager.persist(category);
 	}
 
 	@Override
@@ -97,35 +101,37 @@ public class AdminManagement implements AdminManagementRemote,AdminManagementLoc
 			superVisor.setCategory(category);
 			return "success";
 		}
-
+		
+		//return null;
 	}
-/*
+
 	@Override
-	public void demissionnerEmployer(Employe employe, Labo labo) {
+	public void demissionnerSupervisor(SuperVisor superVisor, Category category) {
 
 		// récupérer le labo (context de persistence)
-		labo = em.find(Labo.class, labo.getId());
+		category = entityManager.find(Category.class, category.getId_Catg());
 
 		// récupérer employe (attacher au context de persistence)
 
-		employe = em.find(Employe.class, employe.getCin());
+		superVisor = entityManager.find(SuperVisor.class, superVisor.getFirstName());
 
 		// supprimer
 		// vérifier que l'employé est affecté au labo passé en paramètres
-		if (employe.getLabo().getId() == labo.getId()) {
-			/**
-			 * on a décidé pour la logique métier qu'un enmployé qui démissionne
-			 * on l'efface de la BD, si on voulais le garder il suffisait de
-			 * faire : employe.setLabo(null); rien pour supprimer la FK avec
-			 * labo
-			 **/
-/*
-			em.remove(employe);
-
+		if (superVisor.getCategory().getId_Catg() == category.getId_Catg()) {
+//			/**
+//			 * on a décidé pour la logique métier qu'un enmployé qui démissionne
+//			 * on l'efface de la BD, si on voulais le garder il suffisait de
+//			 * faire : employe.setLabo(null); rien pour supprimer la FK avec
+//			 * labo
+//			 **/
+			entityManager.remove(superVisor);
 		}
+			
+
+		
 
 	}
-*/
+
 	
 	@Override
 	public List<SuperVisor> listerSupervisorsCateg(Category category) {
@@ -205,14 +211,16 @@ public class AdminManagement implements AdminManagementRemote,AdminManagementLoc
 		}
 	}
 
-	@Override
-	public Employe modifierEmployer(Employe employe) {
-		// TODO Auto-generated method stub
-		return em.merge(employe);
-	}
-
 }
 */
+
+
+
+	@Override
+	public SuperVisor modifierSupervisor(SuperVisor superVisor) {
+		// TODO Auto-generated method stub
+		return entityManager.merge(superVisor);
+	}
      
     
     

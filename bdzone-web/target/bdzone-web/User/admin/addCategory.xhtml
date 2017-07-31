@@ -6,11 +6,12 @@
 	
 		<h:form>
 			<h:panelGrid columns="2">
-				<h:outputLabel value="nom" />
-				<h:inputText value="#{gererLaboBean.labo.nom}" />
-				<h:outputLabel value="presentation" />
-				<h:inputTextarea value="#{gererLaboBean.labo.presentation}" />
-				<h:commandButton action="#{gererLaboBean.ajouterLabo()}" value="Ajouter" />
+				<h:outputLabel value="module" />
+				<h:inputText value="#{categoryMB.category.module}" />
+				<h:outputLabel value="Description" />
+				<h:inputTextarea value="#{categoryMB.category.categoryType}" />
+				<h:selectOneMenu value="#{categoryMB.category.categoryType}"></h:selectOneMenu>
+				<h:commandButton action="#{categoryMB.ajouterCateg()}" value="AjouterCateg" />
 			</h:panelGrid>
 
 		</h:form>

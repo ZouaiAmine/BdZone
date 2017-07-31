@@ -15,7 +15,7 @@ public class Question implements Serializable {
 
 	   
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue
 	private int idQuestion;
 	private static final long serialVersionUID = 1L;
 	

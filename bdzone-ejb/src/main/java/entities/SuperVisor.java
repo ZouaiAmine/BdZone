@@ -19,13 +19,14 @@ public class SuperVisor extends User implements Serializable {
 	private int experience;
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
 	private Category category ;
 	
 
-
-	@ManyToMany
+	/*
+	@ManyToMany(mappedBy="")
 	private List<Category> categories ;
-
+		*/
 	@OneToMany(mappedBy="superVisor")
 	private List<Answer> answers ;
 	
@@ -39,12 +40,12 @@ public class SuperVisor extends User implements Serializable {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-	public List<Category> getCategories() {
-		return categories;
-	}
-	public void setCategories(List<Category> categories) {
-		this.categories = categories;
-	}
+//	public List<Category> getCategories() {
+//		return categories;
+//	}
+//	public void setCategories(List<Category> categories) {
+//		this.categories = categories;
+//	}
 	
 	public List<Answer> getAnswers() {
 		return answers;

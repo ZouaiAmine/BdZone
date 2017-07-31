@@ -11,10 +11,11 @@ import javax.persistence.*;
  *
  */
 @Entity
-
 public class Category implements Serializable {
 
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id_Catg;
 	private String module;
 	
@@ -27,10 +28,10 @@ public class Category implements Serializable {
 	
 	@OneToMany(mappedBy="category")
 	private List<Question> questions ;
-	/*
-	@ManyToMany
+	
+	@OneToMany
 	private List<SuperVisor> superVisors ;
-	*/
+	
 	
 	private static final long serialVersionUID = 1L;
 
@@ -38,6 +39,7 @@ public class Category implements Serializable {
 		super();
 	}
 
+	
 	public int getId_Catg() {
 		return this.id_Catg;
 	}
@@ -79,7 +81,7 @@ public class Category implements Serializable {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
-/*
+
 	public List<SuperVisor> getSuperVisors() {
 		return superVisors;
 	}
@@ -87,5 +89,5 @@ public class Category implements Serializable {
 	public void setSuperVisors(List<SuperVisor> superVisors) {
 		this.superVisors = superVisors;
 	}
-*/
+
 }

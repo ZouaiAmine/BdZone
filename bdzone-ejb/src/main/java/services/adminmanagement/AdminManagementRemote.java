@@ -21,5 +21,10 @@ public interface AdminManagementRemote {
 	String affecterSupervisorCategory(SuperVisor superVisor, Category category);
 
 	List<SuperVisor> listerSupervisorsCateg(Category category);
+	void ajouterCate(Category category);
+
+	SuperVisor modifierSupervisor(SuperVisor superVisor);
+
+	void demissionnerSupervisor(SuperVisor superVisor, Category category);
 
 }

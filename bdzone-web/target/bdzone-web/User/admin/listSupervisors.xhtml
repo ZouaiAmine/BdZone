@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/admintemplate.xhtml">
+
+	<ui:define name="titre"> Gerer les encadrants parMr </ui:define>
+
+	<ui:define name="content">
+		<!-- lister les employes -->
+		<h:form>
+			<h:dataTable rendered="#{supervisorMB.renderList}" border="2"
+				value="#{supervisorMB.superVisors}" var="e">
+				<f:facet name="Liste d'employes"></f:facet>
+				<h:column>
+					<f:facet name="header">Email</f:facet>
+					<h:outputText value="#{e.EMail}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">category</f:facet>
+					<h:outputText value="#{e.category}" />
+				</h:column>
+				<!-- <h:column>
+					<f:facet name="header">demissionner</f:facet>
+					<h:commandButton action="#{supervisorMB.demissionner(e)}}"
+						value="demissionner" />
+				</h:column> -->
+				<h:column>
+					<f:facet name="header">Mise a jour</f:facet>
+					<h:commandButton value="mise à jour" >
+					<f:setPropertyActionListener value="#{e}" target="#{supervisorMB.superVisor}"/>
+					<f:setPropertyActionListener value="true" target="#{supervisorMB.renderUpdateForm}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+		<h:form>
+			<h:commandButton value="Afficher formulaire ajout">
+				<f:setPropertyActionListener value="true"
+					target="#{supervisorMB.renderAddForm}" />
+			</h:commandButton>
+		</h:form>
+
+		<!-- ajouter un empl -->
+		<h:form rendered="#{supervisorMB.renderAddForm}}">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Emaail" />
+				<h:inputText value="#{supervisorMB.superVisor.EMail}" />
+
+				<h:outputLabel value="login" />
+				<h:inputText value="#{supervisorMB.superVisor.login}" />
+
+				<h:outputLabel value="nom" />
+				<h:inputText value="#{supervisorMB.superVisor.firstName}" />
+				<h:commandButton action="#{supervisorMB.ajouter()}"
+					value="Ajouter" />
+			</h:panelGrid>
+		</h:form>
+		<!-- modifier un emplo -->
+		<h:form rendered="#{supervisorMB.renderUpdateForm}">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="name" />
+				<h:inputText value="#{supervisorMB.superVisor.firstName}" />
+
+				<h:outputLabel value="login" />
+				<h:inputText value="#{supervisorMB.superVisor.login}" />
+
+				<h:outputLabel value="email" />
+				<h:inputText value="#{supervisorMB.superVisor.EMail}" />
+				<h:commandButton action="#{supervisorMB.update()}"
+					value="Modifier" />
+			</h:panelGrid>
+		</h:form>
+
+	</ui:define>
+
+
+
+</ui:composition>
