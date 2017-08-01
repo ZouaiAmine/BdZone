@@ -16,7 +16,7 @@ public class User implements Serializable {
 //public abstract class User implements Serializable {
 	   
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	
 	
@@ -30,6 +30,9 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}   
+	public User(String firstName2, String lastName2, String eMail2) {
+		// TODO Auto-generated constructor stub
+	}
 	public int getId() {
 		return this.id;
 	}

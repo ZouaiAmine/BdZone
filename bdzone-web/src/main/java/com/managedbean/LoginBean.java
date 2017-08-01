@@ -50,7 +50,7 @@ public class LoginBean{
 
 		if (user instanceof Admin) {
 			setLogin(user.getLogin());
-			//return "/admin/acceuil?faces-redirect=true";
+			
 			return "/User/admin/acceuil?faces-redirect=true";
 		} else if (user instanceof SuperVisor) {
 			setLogin(user.getLogin());

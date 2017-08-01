@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 
 import entities.Category;
 import entities.SuperVisor;
+import entities.User;
 
 
 
@@ -35,7 +36,7 @@ public class AdminManagement implements AdminManagementRemote {
 	@Override
 	public Category ajouterCateg(Category category) {
 		
-return null;	}
+			return null;	}
 	@Override
 	public void ajouterCate(Category category) {
 		
@@ -141,14 +142,14 @@ return null;	}
 //		System.out.println("dans métier id labo "+ labo.getId());
 //		return labo.getEmployes();
 		TypedQuery<SuperVisor> query = entityManager.createQuery("select e from SuperVisor e where e.category=:category", SuperVisor.class);
-		query.setParameter("category", category);
+		query.setParameter("category",category);
 		return query.getResultList();
 	}
-/*
+
 	@Override
 	// avec cette même méthode on peut ajouter toutes les classes filles
 	// (technicien ect)
-	public void ajouterEmployer(Employe employe) {
+	public void ajouterUser(User user) {
 		/*
 		 * si jamais on ajoute un nouveau technicien et que du côté client on a
 		 * affecté des compétences à ce technicien, il faut également persister
@@ -157,16 +158,19 @@ return null;	}
 		 * niveau du technicien, la même lologique s'applique si on veut
 		 * supprimer en cascade (cadcade.remove) ect, pour avoir tous les types
 		 * de cascades on utilise cascadeType.ALL
-		 */
-/*
+		 * 	 
+
 		// Remarque: si on a une relation @ManyToOne, on ne peut pas utiliser
 		// cascade remove. Parce que si on supprime l'oject du côté one de la
 		// relation, il reste des objets du côté many qui sont sensés êtres
 		// connectés à cet objet
-		em.persist(employe);
+		 * 
+		 * 
+		 */
+		entityManager.persist(user);
 
 	}
-
+/*
 	@Override
 	public void affecterComptTech(Competence competence, Technicien technicien) {
 		technicien = em.find(Technicien.class, technicien.getCin());

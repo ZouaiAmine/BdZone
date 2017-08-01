@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/login/TemplateLogin.xhtml">
+	<ui:define name="content">
+		<h:form id="auth-form">
+			<p:growl autoUpdate="true"></p:growl>
+			<div class="col.s12 input-field">
+				<h:inputText id="username" required="true"
+					requiredMessage="username is required"
+					value="#{subscribtionBean.login}" />
+				<h:outputLabel for="usrname" value="username" />
+			</div>
+			<div class="col.s12 input-field">
+				<h:inputText id="firstname" required="true"
+					requiredMessage="firstname is required"
+					value="#{subscribtionBean.firstName}" />
+				<h:outputLabel for="firstname" value="firstname" />
+			</div>
+			<div class="col.s12 input-field">
+				<h:inputText id="lastName" required="true"
+					requiredMessage="lastName is required"
+					value="#{subscribtionBean.lastName}" />
+				<h:outputLabel for="lastName" value="lastName" />
+			</div>
+			<div class="col.s12 input-field">
+				<h:inputText id="EMail" required="true"
+					requiredMessage="EMail is required"
+					value="#{subscribtionBean.eMail}" />
+				<h:outputLabel for="EMail" value="EMail" />
+			</div>
+
+			<div class="col.s12 input-field">
+				<h:inputText id="password" required="true"
+					requiredMessage="password is required"
+					value="#{subscribtionBean.password}" />
+				<h:outputLabel for="password" value="password" />
+			</div>
+			<div class="col.s12 input-field">
+				<!-- <h:outputLabel value="type" /> -->
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+					<h:outputLabel for="typeUser" value="typeUser" />
+
+					<h:selectOneMenu value="#{subscribtionBean.typeUser}">
+						<f:selectItem itemLabel="employe" itemValue="User" />
+						<f:selectItem itemLabel="technicien" itemValue="SuperVisor" />
+						<f:selectItem itemLabel="chercheur" itemValue="Trainee" />
+						<f:selectItem itemLabel="admin" itemValue="Admin" />
+					</h:selectOneMenu>
+				</h:panelGrid>
+			</div>
+			<div class="col.s12 input-field">
+				<h:commandButton action="#{subscribtionBean.register()}"
+					value="Register" styleClass="btn btn-large" />
+			</div>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>

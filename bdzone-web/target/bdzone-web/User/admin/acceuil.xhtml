@@ -4,9 +4,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/admintemplate.xhtml">
 
-	<ui:define name="title">Admin Page</ui:define>
+	<ui:define name="title">Admin Page </ui:define>
 	<ui:define name="titre">
-		<h1>hello admin:</h1>
+		<h1>hello admin:#{loginBean.user.firstName} </h1>
 		<h:outputText value="#{loginBean.user.firstName}" />
 		<h:form>
 			<h:commandButton action="#{loginBean.logout()}"

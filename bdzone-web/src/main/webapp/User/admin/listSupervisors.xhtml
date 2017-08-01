@@ -27,9 +27,11 @@
 				</h:column> -->
 				<h:column>
 					<f:facet name="header">Mise a jour</f:facet>
-					<h:commandButton value="mise à jour" >
-					<f:setPropertyActionListener value="#{e}" target="#{supervisorMB.superVisor}"/>
-					<f:setPropertyActionListener value="true" target="#{supervisorMB.renderUpdateForm}"></f:setPropertyActionListener>
+					<h:commandButton value="mise à jour">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{supervisorMB.superVisor}" />
+						<f:setPropertyActionListener value="true"
+							target="#{supervisorMB.renderUpdateForm}"></f:setPropertyActionListener>
 					</h:commandButton>
 				</h:column>
 
@@ -43,7 +45,7 @@
 			</h:commandButton>
 		</h:form>
 
-		<!-- ajouter un empl -->
+		ajouter un empl
 		<h:form rendered="#{supervisorMB.renderAddForm}}">
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Emaail" />
@@ -54,11 +56,10 @@
 
 				<h:outputLabel value="nom" />
 				<h:inputText value="#{supervisorMB.superVisor.firstName}" />
-				<h:commandButton action="#{supervisorMB.ajouter()}"
-					value="Ajouter" />
+				<h:commandButton action="#{supervisorMB.ajouter()}" value="Ajouter" />
 			</h:panelGrid>
 		</h:form>
-		<!-- modifier un emplo -->
+		modifier un emplo
 		<h:form rendered="#{supervisorMB.renderUpdateForm}">
 			<h:panelGrid columns="2">
 				<h:outputLabel value="name" />
@@ -69,8 +70,7 @@
 
 				<h:outputLabel value="email" />
 				<h:inputText value="#{supervisorMB.superVisor.EMail}" />
-				<h:commandButton action="#{supervisorMB.update()}"
-					value="Modifier" />
+				<h:commandButton action="#{supervisorMB.update()}" value="Modifier" />
 			</h:panelGrid>
 		</h:form>
 

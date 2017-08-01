@@ -1,20 +1,24 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-	
-		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="module" />
-				<h:inputText value="#{categoryMB.category.module}" />
-				<h:outputLabel value="Description" />
-				<h:inputTextarea value="#{categoryMB.category.categoryType}" />
-				<h:selectOneMenu value="#{categoryMB.category.categoryType}"></h:selectOneMenu>
-				<h:commandButton action="#{categoryMB.ajouterCateg()}" value="AjouterCateg" />
-			</h:panelGrid>
 
-		</h:form>
+	<h:form>
+		<p:growl autoUpdate="true"></p:growl>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="module" />
+			<h:inputText value="#{categoryMB.category.module}" />
+			<h:outputLabel value="Description" />
+			<h:inputTextarea value="#{categoryMB.category.categoryType}" />
+			<h:commandButton action="#{categoryMB.ajouterCateg()}"
+				value="AjouterCateg" />
+		</h:panelGrid>
+
+
+
+	</h:form>
 
 
 

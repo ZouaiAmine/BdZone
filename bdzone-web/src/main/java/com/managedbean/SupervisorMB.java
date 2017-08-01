@@ -9,8 +9,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
+//import javax.faces.bean.ViewScoped;
 
 import entities.SuperVisor;
 import services.adminmanagement.AdminManagementRemote;
@@ -18,39 +18,35 @@ import services.adminmanagement.AdminManagementRemote;
 
 
 @ManagedBean
-@ViewScoped
+@RequestScoped
 public class SupervisorMB implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@EJB
 	AdminManagementRemote adminManagementRemote;
 
 	private List<SuperVisor> superVisors;
 
-	@ManagedProperty(value = "#{CategoryMB}")
+	//@ManagedProperty(value = "#{CategoryMB}")
 	private CategoryMB gererCateg ;
 
 	private Boolean renderList;
 	private Boolean renderAddForm;
 	private SuperVisor superVisor;
 	private Boolean renderUpdateForm;
-/*
-	public GererLaboBean getGererLabo() {
-		return gererLabo;
-	}
 
-	public void setGererLabo(GererLaboBean gererLabo) {
-		this.gererLabo = gererLabo;
-	}
-
-*/
 	
 	@PostConstruct
 	public void init() {
 		System.out.println("new gererEmplBean!!!!!!!!!!!!!!!!");
-		//superVisors = new ArrayList<SuperVisor>();
-		//superVisor = new SuperVisor();
-		System.out.println("id supervisor " + gererCateg.getCategory().getId_Catg());
-		superVisors = adminManagementRemote.listerSupervisorsCateg(gererCateg.getCategory());
+		superVisors = new ArrayList<SuperVisor>();
+		superVisor = new SuperVisor();
+		//System.out.println("id supervisor " + gererCateg.getCategory().getId_Catg());
+		superVisors = adminManagementRemote.listerSupervisorsCateg(superVisor.getCategory());
 		renderAddForm = false;
 		setRenderUpdateForm(false);
 		if (superVisors.isEmpty()) {

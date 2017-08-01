@@ -15,7 +15,7 @@ public class Category implements Serializable {
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id_Catg;
 	private String module;
 	

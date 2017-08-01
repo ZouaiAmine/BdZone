@@ -1,4 +1,4 @@
-package filtres;
+package com.Filter;
 //protéger l'espace admin
 
 import java.io.IOException;
@@ -17,9 +17,7 @@ import com.managedbean.LoginBean;
 
 import entities.Admin;
 
-
-
-@WebFilter(urlPatterns = "/admin/*")
+@WebFilter(urlPatterns = "/User/admin/*")
 public class AdminFilter implements Filter {
 
 	@Override
@@ -33,13 +31,13 @@ public class AdminFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-LoginBean loginBean = (LoginBean) req.getSession()
-				.getAttribute("loginBean");
-		System.out.println("auth "+loginBean);
-		System.out.println("emp  "+loginBean.getUser().getLogin());
+		LoginBean loginBean = (LoginBean) req.getSession().getAttribute("loginBean");
+		 System.out.println("auth "+loginBean.getUser());
+		 System.out.println("adm "+loginBean.getUser().getLogin());
 		if (loginBean.getUser() instanceof Admin) {
 			System.out.println("is admin");
 			chain.doFilter(request, response);
+			
 		} else {
 			System.out.println("is not admin");
 			resp.sendRedirect(req.getContextPath() + "/login/login.jsf?faces-redirect=true");

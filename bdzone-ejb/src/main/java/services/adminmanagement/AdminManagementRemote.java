@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import entities.Category;
 import entities.SuperVisor;
+import entities.User;
 
 @Remote
 public interface AdminManagementRemote {
@@ -26,5 +27,7 @@ public interface AdminManagementRemote {
 	SuperVisor modifierSupervisor(SuperVisor superVisor);
 
 	void demissionnerSupervisor(SuperVisor superVisor, Category category);
+
+	void ajouterUser(User user);
 
 }
