@@ -7,15 +7,57 @@
 <h:head>
 	<ui:insert name="title"></ui:insert>
 
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css" />
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript"
+		src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700'
+	rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="css/reset.css" />
+	<!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css" />
+	<!-- Resource style -->
+	<script src="js/modernizr.js"></script>
+	<!-- Modernizr -->
+	<title>FAQ Template | CodyHouse</title>
+
 </h:head>
 
-<body>
+<h:body styleClass="cyan lighten-5">
 	<ui:include src="/templates/header.xhtml" />
 	<br />
 	<br />
-	<ui:insert name="content"> contenu </ui:insert>
+	<div class="valign-wrapper" id="login-page">
+		<div class="container">
+			<div class="left-align">
+				<div class="row">
+					<div class="col.push-s1">
+						<div class="card">
+
+		
+							<ui:insert name="content1"></ui:insert>
+							<ui:insert name="content2"></ui:insert>
+							<ui:insert name="content3"></ui:insert>
+						
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 	<br />
 	<br />
 	<ui:include src="/templates/footer.xhtml" />
-</body>
+</h:body>
 </html>

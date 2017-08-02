@@ -17,7 +17,7 @@ import com.managedbean.LoginBean;
 
 import entities.Admin;
 
-@WebFilter(urlPatterns = "/User/admin/*")
+@WebFilter(urlPatterns = "/User/supervisor/*")
 public class AdminFilter implements Filter {
 
 	@Override

@@ -5,6 +5,7 @@ com\managedbean\AskQuestion.class
 com\managedbean\SupervisorMB.class
 com\managedbean\MenuView.class
 com\managedbean\QuestionMB.class
+com\managedbean\BasicView.class
 com\managedbean\TestBean.class
 com\managedbean\InputTextareaView.class
 com\Filter\AdminFilter.class

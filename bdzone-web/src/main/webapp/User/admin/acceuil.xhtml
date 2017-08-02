@@ -4,19 +4,26 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/templates/admintemplate.xhtml">
 
-	<ui:define name="title">Admin Page </ui:define>
-	<ui:define name="titre">
-		<h1>hello admin:#{loginBean.user.firstName} </h1>
+	<!-- <ui:define name="title">Admin Page </ui:define> -->
+	
+		<!-- <h1>hello admin:#{loginBean.user.firstName} </h1> -->
+		
 		<h:outputText value="#{loginBean.user.firstName}" />
 		<h:form>
 			<h:commandButton action="#{loginBean.logout()}"
 				value="log-out" />
 		</h:form>
 
-	</ui:define>
+	
 
-	<ui:define name="content">
+	<ui:define name="content1">
 		<ui:include src="/User/admin/addCategory.xhtml" />
+		
+	</ui:define>
+	
+	<ui:define name="content2">
+		<ui:include src="/User/admin/addSpervisor.xhtml" />
+	
 	</ui:define>
 
 

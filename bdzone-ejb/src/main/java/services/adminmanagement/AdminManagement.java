@@ -225,7 +225,13 @@ public class AdminManagement implements AdminManagementRemote {
 		// TODO Auto-generated method stub
 		return entityManager.merge(superVisor);
 	}
-     
+	
+	@Override
+	public List<SuperVisor> afficherSuperVisor() {
+		TypedQuery<SuperVisor> query =  entityManager.createQuery("select h from SuperVisor h", SuperVisor.class);
+		return query.getResultList();
+	}
+	
     
     
     }
