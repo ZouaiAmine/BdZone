@@ -2,20 +2,50 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	template="/templates/admintemplate.xhtml">
+	xmlns:p="http://primefaces.org/ui">
+	<!-- template="/templates/admintemplate.xhtml"> -->
 
 	<!-- <ui:define name="title">Admin Page </ui:define> -->
-	
-		<!-- <h1>hello admin:#{loginBean.user.firstName} </h1> -->
-		
-		<h:outputText value="#{loginBean.user.firstName}" />
-		<h:form>
-			<h:commandButton action="#{loginBean.logout()}"
-				value="log-out" />
+
+	<!-- <h1>hello admin:#{loginBean.user.firstName} </h1> -->
+<!-- 
+<h:form>
+			<h:commandButton action="#{loginBean.logout()}" value="log-out" />
 		</h:form>
-
+			 -->
+	<ui:define name="content1">
+		
 	
+		
+		<p:layout fullPage="true">
 
+			<p:layoutUnit position="north" size="100" header="Top"
+				resizable="true" closable="true" collapsible="true">
+				<h:outputText value="North unit content." />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="south" size="100" header="Bottom"
+				resizable="true" closable="true" collapsible="true">
+				<h:outputText value="South unit content." />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="west" size="200" header="Left"
+				resizable="true" closable="true" collapsible="true">
+				<h:outputText value="West unit content." />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="east" size="200" header="Right"
+				resizable="true" closable="true" collapsible="true" effect="drop">
+				<h:outputText value="Right unit content." />
+			</p:layoutUnit>
+
+			<p:layoutUnit position="center">
+
+			</p:layoutUnit>
+
+		</p:layout>
+	</ui:define>
+	<!-- 
 	<ui:define name="content1">
 		<ui:include src="/User/admin/addCategory.xhtml" />
 		
@@ -25,7 +55,7 @@
 		<ui:include src="/User/admin/addSpervisor.xhtml" />
 	
 	</ui:define>
-
+ -->
 
 
 </ui:composition>

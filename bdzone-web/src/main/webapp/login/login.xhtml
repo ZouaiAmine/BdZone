@@ -24,12 +24,16 @@
 				<h:commandButton action="#{loginBean.doLogin()}" value="Login"
 					styleClass="btn btn-large" />
 					
-					<h:commandButton action="#{subscribtionBean.register()}" value="Subscribe"
-				styleClass="btn btn-large"/>
 			</div>
+			</h:form>
+			<h:form>
+				<p:separator title="subscribe"></p:separator>	
+					<h:commandButton action="#{subscribtionBean.Subscribe()}" value="Subscribe"
+				styleClass="btn btn-large"/>
+			</h:form>
 			
 
 
-		</h:form>
+		
 	</ui:define>
 </ui:composition>

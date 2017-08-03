@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import entities.Admin;
 import entities.Category;
@@ -31,7 +32,6 @@ public class SubscribtionBean {
     
     
 	public String Subscribe() {
-		
 		return "/login/auth?faces-redirect=true";
 	}
     
