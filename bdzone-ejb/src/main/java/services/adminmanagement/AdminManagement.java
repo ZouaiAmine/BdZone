@@ -11,12 +11,8 @@ import javax.persistence.TypedQuery;
 
 import entities.Category;
 import entities.SuperVisor;
+import entities.Trainee;
 import entities.User;
-
-
-
-
-
 
 /**
  * Session Bean implementation class Login
@@ -30,8 +26,6 @@ public class AdminManagement implements AdminManagementRemote {
 	public AdminManagement() {
         // TODO Auto-generated constructor stub
 	}
-    
-
 
 	@Override
 	public Category ajouterCateg(Category category) {
@@ -50,23 +44,7 @@ public class AdminManagement implements AdminManagementRemote {
 		return "success";
 
 	}
-/*
 
-	@Override
-	public String supprimerLabo(Labo labo) {
-		// il faut supprimer les liens avec employé (FK) pour pouvoir supprimer
-		// le labo
-		TypedQuery<Employe> query = em.createQuery("select e from Employe e where e.labo=:labo", Employe.class);
-		query.setParameter("labo", labo);
-		List<Employe> emps = query.getResultList();
-		for (Employe employe : emps) {
-			employe.setLabo(null);
-		}
-		em.remove(em.merge(labo));
-		return "success";
-
-	}
-*/
 		@Override
 	public Category chercherCategParId(int id) {
 
@@ -127,13 +105,8 @@ public class AdminManagement implements AdminManagementRemote {
 //			 **/
 			entityManager.remove(superVisor);
 		}
-			
-
-		
-
 	}
 
-	
 	@Override
 	public List<SuperVisor> listerSupervisorsCateg(Category category) {
 //		labo = em.find(Labo.class, labo.getId());
@@ -149,77 +122,40 @@ public class AdminManagement implements AdminManagementRemote {
 	@Override
 	// avec cette même méthode on peut ajouter toutes les classes filles
 	// (technicien ect)
-	public void ajouterUser(User user) {
-		/*
-		 * si jamais on ajoute un nouveau technicien et que du côté client on a
-		 * affecté des compétences à ce technicien, il faut également persister
-		 * les competences. Au lieu de le faire au niveau de la méthode métieur
-		 * on ajoute cascade=cascadeType.Persist sur l'association compétence au
-		 * niveau du technicien, la même lologique s'applique si on veut
-		 * supprimer en cascade (cadcade.remove) ect, pour avoir tous les types
-		 * de cascades on utilise cascadeType.ALL
-		 * 	 
-
-		// Remarque: si on a une relation @ManyToOne, on ne peut pas utiliser
-		// cascade remove. Parce que si on supprime l'oject du côté one de la
-		// relation, il reste des objets du côté many qui sont sensés êtres
-		// connectés à cet objet
-		 * 
-		 * 
-		 */
+	
+	public void ajouterTrainee(Trainee user) {
+		
 		entityManager.persist(user);
 
 	}
-/*
+	
 	@Override
-	public void affecterComptTech(Competence competence, Technicien technicien) {
-		technicien = em.find(Technicien.class, technicien.getCin());
-		em.persist(competence);
-		if (technicien.getCompetences() == null) {
-			List<Competence> competences = new ArrayList<Competence>();
-			competences.add(competence);
-			technicien.setCompetences(competences);
+	public Trainee modifierTainee(Trainee trainee) {
+		// TODO Auto-generated method stub
+		return entityManager.merge(trainee);
+	}
+	
+	@Override
+	public List<Trainee> afficherTrainees() {
+		TypedQuery<Trainee> query =  entityManager.createQuery("select h from Trainee h", Trainee.class);
+		return query.getResultList();
+	}
+	
+	@Override
+	public Trainee chercherTraineeParId(int id) {
 
-			// à chaque fois qu'on ajoute une nouvelle information à une entité
-			// existante il faut faire un merge
-			em.merge(technicien);
-		} else {
-			// Il faut toujours récupérer l'ancienne liste et y rajouter de
-			// nouveaux éléments
-			technicien.getCompetences().add(competence);
-			em.merge(technicien);
-		}
+		return entityManager.find(Trainee.class, id);
 
 	}
 
 	@Override
-	public List<Competence> listerCompTechnicien(Technicien technicien) {
-		technicien = em.find(Technicien.class, technicien.getCin());
-		// il faut ajouter le fetch eager sur la list de competences dans
-		// technicien
-		return technicien.getCompetences();
+	public SuperVisor chercherSuperVisorParId(int id) {
+
+		return entityManager.find(SuperVisor.class, id);
+
 	}
-
-	@Override
-	public Employe authentifier(String login, String password) {
-		Employe employe = null;
-		TypedQuery<Employe> query = em
-				.createQuery("select e from Employe e where e.login=:login and e.password=:password ", Employe.class);
-		query.setParameter("login", login);
-		query.setParameter("password", password);
-		try {
-			return query.getSingleResult();
-
-		} catch (NoResultException e) {
-			return null;
-		}
-	}
-
-}
-*/
-
-
-
+	
+	
 	@Override
 	public SuperVisor modifierSupervisor(SuperVisor superVisor) {
 		// TODO Auto-generated method stub
@@ -234,6 +170,92 @@ public class AdminManagement implements AdminManagementRemote {
 	
     
     
-    }
+    
 
+public void ajouterUser(User user) {
+	/*
+	 * si jamais on ajoute un nouveau technicien et que du côté client on a
+	 * affecté des compétences à ce technicien, il faut également persister
+	 * les competences. Au lieu de le faire au niveau de la méthode métieur
+	 * on ajoute cascade=cascadeType.Persist sur l'association compétence au
+	 * niveau du technicien, la même lologique s'applique si on veut
+	 * supprimer en cascade (cadcade.remove) ect, pour avoir tous les types
+	 * de cascades on utilise cascadeType.ALL
+	 * 	 
 
+	// Remarque: si on a une relation @ManyToOne, on ne peut pas utiliser
+	// cascade remove. Parce que si on supprime l'oject du côté one de la
+	// relation, il reste des objets du côté many qui sont sensés êtres
+	// connectés à cet objet
+	 * 
+	 * 
+	 */
+	entityManager.persist(user);
+
+}}
+
+/*
+@Override
+public void affecterComptTech(Competence competence, Technicien technicien) {
+	technicien = em.find(Technicien.class, technicien.getCin());
+	em.persist(competence);
+	if (technicien.getCompetences() == null) {
+		List<Competence> competences = new ArrayList<Competence>();
+		competences.add(competence);
+		technicien.setCompetences(competences);
+
+		// à chaque fois qu'on ajoute une nouvelle information à une entité
+		// existante il faut faire un merge
+		em.merge(technicien);
+	} else {
+		// Il faut toujours récupérer l'ancienne liste et y rajouter de
+		// nouveaux éléments
+		technicien.getCompetences().add(competence);
+		em.merge(technicien);
+	}
+
+}
+
+@Override
+public List<Competence> listerCompTechnicien(Technicien technicien) {
+	technicien = em.find(Technicien.class, technicien.getCin());
+	// il faut ajouter le fetch eager sur la list de competences dans
+	// technicien
+	return technicien.getCompetences();
+}
+
+@Override
+public Employe authentifier(String login, String password) {
+	Employe employe = null;
+	TypedQuery<Employe> query = em
+			.createQuery("select e from Employe e where e.login=:login and e.password=:password ", Employe.class);
+	query.setParameter("login", login);
+	query.setParameter("password", password);
+	try {
+		return query.getSingleResult();
+
+	} catch (NoResultException e) {
+		return null;
+	}
+}
+
+}
+*/
+
+/*
+
+@Override
+public String supprimerLabo(Labo labo) {
+	// il faut supprimer les liens avec employé (FK) pour pouvoir supprimer
+	// le labo
+	TypedQuery<Employe> query = em.createQuery("select e from Employe e where e.labo=:labo", Employe.class);
+	query.setParameter("labo", labo);
+	List<Employe> emps = query.getResultList();
+	for (Employe employe : emps) {
+		employe.setLabo(null);
+	}
+	em.remove(em.merge(labo));
+	return "success";
+
+}
+*/

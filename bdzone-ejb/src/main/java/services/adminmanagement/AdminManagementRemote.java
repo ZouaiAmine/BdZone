@@ -6,6 +6,7 @@ import javax.ejb.Remote;
 
 import entities.Category;
 import entities.SuperVisor;
+import entities.Trainee;
 import entities.User;
 
 @Remote
@@ -31,5 +32,15 @@ public interface AdminManagementRemote {
 	void ajouterUser(User user);
 
 	List<SuperVisor> afficherSuperVisor();
+
+	void ajouterTrainee(Trainee user);
+
+	List<Trainee> afficherTrainees();
+
+	Trainee modifierTainee(Trainee trainee);
+
+	Trainee chercherTraineeParId(int id);
+
+	SuperVisor chercherSuperVisorParId(int id);
 
 }

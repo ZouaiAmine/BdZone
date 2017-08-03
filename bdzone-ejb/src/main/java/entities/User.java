@@ -25,6 +25,7 @@ public class User implements Serializable {
 	private String login ;
 	private String eMail;
 	private String password;
+	 private boolean Baned;
 	private static final long serialVersionUID = 1L;
 
 	public User() {
@@ -81,6 +82,12 @@ public class User implements Serializable {
 	}
 	public void setLogin(String login) {
 		this.login = login;
+	}
+	public boolean isBaned() {
+		return Baned;
+	}
+	public void setBaned(boolean baned) {
+		Baned = baned;
 	}
 	
 }

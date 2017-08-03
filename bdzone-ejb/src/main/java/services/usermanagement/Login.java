@@ -41,6 +41,12 @@ public class Login implements LoginRemote, LoginLocal {
 		return user;
 	}
 	
+	@Override
+	public void DisableAccount(User u){
+		u.setBaned(true);
+		entityManager.merge(u);
+		
+	}
 	
 
 }

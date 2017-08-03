@@ -1,5 +1,6 @@
 package com.managedbean;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -28,6 +29,11 @@ public class SubscribtionBean {
     @EJB
     AdminManagementRemote adminManagementRemote ;
     
+    
+	public String Subscribe() {
+		
+		return "/login/auth?faces-redirect=true";
+	}
     
     public String register() {
 		switch (typeUser) {

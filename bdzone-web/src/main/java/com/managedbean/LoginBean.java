@@ -44,6 +44,15 @@ public class LoginBean{
 		return "/login/login?faces-redirect=true";
 	}
 
+	public String DisableAccount()
+	{
+		loginRemote.DisableAccount(user);
+		return "/Disabled?faces-redirect=true";
+		
+		
+	}
+	
+	
 	
 	public String doLogin() {
 		 user = loginRemote.identifierUser(login, password);

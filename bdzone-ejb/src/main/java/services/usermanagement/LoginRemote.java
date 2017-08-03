@@ -10,4 +10,6 @@ public interface LoginRemote {
 
 	User identifierUser(String login, String password);
 
+	void DisableAccount(User u);
+
 }
