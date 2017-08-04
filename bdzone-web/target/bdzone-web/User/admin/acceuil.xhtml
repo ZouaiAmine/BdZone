@@ -3,49 +3,22 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-                xmlns:a4j="http://richfaces.org/a4j">
-	<!-- template="/templates/admintemplate.xhtml"> -->
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
+	template="/User/admin/NewFile.xhtml">
 
 	<!-- <ui:define name="title">Admin Page </ui:define> -->
 
 	<!-- <h1>hello admin:#{loginBean.user.firstName} </h1> -->
-<!-- 
+	<!-- 
 <h:form>
 			<h:commandButton action="#{loginBean.logout()}" value="log-out" />
 		</h:form>
 			 -->
-	<ui:define name="content1">
-		
-	
-		
-		<p:layout fullPage="true">
+	<ui:define name="content">
 
-			<p:layoutUnit position="north" size="100" header="Top"
-				resizable="true" closable="true" collapsible="true">
-				<h:outputText value="North unit content." />
-			</p:layoutUnit>
-
-			<p:layoutUnit position="south" size="100" header="Bottom"
-				resizable="true" closable="true" collapsible="true">
-				<h:outputText value="South unit content." />
-			</p:layoutUnit>
-
-			<p:layoutUnit position="west" size="200" header="Left"
-				resizable="true" closable="true" collapsible="true">
-				<h:outputText value="West unit content." />
-			</p:layoutUnit>
-			<a4j:commandButton>
-			</a4j:commandButton>
-			<p:layoutUnit position="east" size="200" header="Right"
-				resizable="true" closable="true" collapsible="true" effect="drop">
-				<h:outputText value="Right unit content." />
-			</p:layoutUnit>
-
-			
-
-		</p:layout>
-	</ui:define>
+	<h:commandButton action="#{loginBean.logout()}" value="logout" />
+<!-- 		<ui:include src="/User/admin/addCategory.xhtml" />
+ -->	</ui:define>
 	<!-- 
 	<ui:define name="content1">
 		<ui:include src="/User/admin/addCategory.xhtml" />

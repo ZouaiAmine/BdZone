@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import entities.SuperVisor;
+import entities.Trainee;
 import entities.User;
 import services.adminmanagement.AdminManagementRemote;
 
@@ -22,23 +23,31 @@ public class BasicView   {
 	
 	//private List<Agent> cars;	
 	private List<SuperVisor> superVisors;
+	private List<Trainee> trainees;
+	
    
     @EJB 
     AdminManagementRemote adminManagementRemote;
     
 	
 
-   
+   private Trainee trainee ;
     private SuperVisor superVisor;
     
     
     @PostConstruct
-    public void init() {
+    public void initSup() {
     	superVisor = new SuperVisor();
       superVisors=new ArrayList<>();
     	superVisors=adminManagementRemote.afficherSuperVisor();
     }
 
+    @PostConstruct
+    public void initTr() {
+    	trainee = new Trainee();
+      trainees=new ArrayList<Trainee>();
+    	trainees=adminManagementRemote.afficherTrainees();
+    }
 
 	public List<SuperVisor> getSuperVisors() {
 		return superVisors;
