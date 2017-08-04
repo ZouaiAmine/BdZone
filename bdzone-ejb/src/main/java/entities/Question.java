@@ -17,10 +17,14 @@ public class Question implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idQuestion;
+	
+	private String descriptionQ ;
+	
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany
 	private List<Keyword> keywords ;
+	
 	
 	
 	@ManyToOne
@@ -76,6 +80,30 @@ public class Question implements Serializable {
 	
 	public void setIdQuestion(int idQuestion) {
 		this.idQuestion = idQuestion;
+	}
+
+	public String getDescriptionQ() {
+		return descriptionQ;
+	}
+
+	public void setDescriptionQ(String descriptionQ) {
+		this.descriptionQ = descriptionQ;
+	}
+
+	public List<Keyword> getKeywords() {
+		return keywords;
+	}
+
+	public void setKeywords(List<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+
+	public SuperVisor getSuperVisor() {
+		return superVisor;
+	}
+
+	public void setSuperVisor(SuperVisor superVisor) {
+		this.superVisor = superVisor;
 	}
    
 }

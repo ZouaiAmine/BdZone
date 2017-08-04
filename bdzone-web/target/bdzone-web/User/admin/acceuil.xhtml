@@ -1,8 +1,10 @@
+
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+                xmlns:a4j="http://richfaces.org/a4j">
 	<!-- template="/templates/admintemplate.xhtml"> -->
 
 	<!-- <ui:define name="title">Admin Page </ui:define> -->
@@ -33,15 +35,14 @@
 				resizable="true" closable="true" collapsible="true">
 				<h:outputText value="West unit content." />
 			</p:layoutUnit>
-
+			<a4j:commandButton>
+			</a4j:commandButton>
 			<p:layoutUnit position="east" size="200" header="Right"
 				resizable="true" closable="true" collapsible="true" effect="drop">
 				<h:outputText value="Right unit content." />
 			</p:layoutUnit>
 
-			<p:layoutUnit position="center">
-
-			</p:layoutUnit>
+			
 
 		</p:layout>
 	</ui:define>
