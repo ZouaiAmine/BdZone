@@ -40,11 +40,11 @@ public class AdminFilter implements Filter {
 				System.out.println("is admin");
 				chain.doFilter(request, response);
 
-//			} else {
-//				System.out.println("is not admin");
-//				resp.sendRedirect(req.getContextPath() + "/login/login.jsf?faces-redirect=true");
+		} else {
+			System.out.println("is not admin");
+				resp.sendRedirect(req.getContextPath() + "/login/login.jsf?faces-redirect=true");
 			}
-		}else{resp.sendRedirect(req.getContextPath() + "/login/login.jsf?faces-redirect=true");}
+		}else{resp.sendRedirect(req.getContextPath() + "/User/admin/userList.jsf?faces-redirect=true");}
 
 	}
 
