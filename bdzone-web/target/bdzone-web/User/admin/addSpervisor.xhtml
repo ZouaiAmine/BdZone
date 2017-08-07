@@ -1,12 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      	xmlns:p="http://primefaces.org/ui"> 
+<ui:composition  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/User/admin/NewFile.xhtml">
 
-<h:head></h:head> 
+<!-- <h:head></h:head>  -->
 <h:body> 
+<ui:define name="content">
 <h:form>
 
 		<p:growl autoUpdate="true"></p:growl>
@@ -38,6 +39,7 @@
 
 	
 	</h:form>
-
+</ui:define>
 </h:body> 
-</html>
+
+</ui:composition>

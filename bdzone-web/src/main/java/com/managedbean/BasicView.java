@@ -12,7 +12,7 @@ import javax.faces.bean.ViewScoped;
 
 import entities.SuperVisor;
 import entities.Trainee;
-import entities.User;
+
 import services.adminmanagement.AdminManagementRemote;
 
 
@@ -36,18 +36,16 @@ public class BasicView   {
     
     
     @PostConstruct
-    public void initSup() {
+    public void init() {
     	superVisor = new SuperVisor();
       superVisors=new ArrayList<>();
     	superVisors=adminManagementRemote.afficherSuperVisor();
+    	
+    	trainee = new Trainee();
+        trainees=new ArrayList<Trainee>();
+      	trainees=adminManagementRemote.afficherTrainees();
     }
 
-    @PostConstruct
-    public void initTr() {
-    	trainee = new Trainee();
-      trainees=new ArrayList<Trainee>();
-    	trainees=adminManagementRemote.afficherTrainees();
-    }
 
 	public List<SuperVisor> getSuperVisors() {
 		return superVisors;
@@ -67,8 +65,25 @@ public class BasicView   {
 	public void setSuperVisor(SuperVisor superVisor) {
 		this.superVisor = superVisor;
 	}
+
+	public List<Trainee> getTrainees() {
+		return trainees;
+	}
+
+	public void setTrainees(List<Trainee> trainees) {
+		this.trainees = trainees;
+	}
+
+	public Trainee getTrainee() {
+		return trainee;
+	}
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
+	}
      
     
+	
 	
 //	
 //	public String close(SuperVisor u) {
@@ -77,10 +92,6 @@ public class BasicView   {
 //		
 //		return "";
 //	}
-//	
-//	
-//	
-//	
 //	
 //	
 //	public String delete(User u) {

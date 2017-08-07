@@ -64,23 +64,28 @@ public class SupervisorMB implements Serializable {
 	public String demissionner(SuperVisor superVisor) {
 		System.out.println("in !!!!!");
 		System.out.println("employe "+superVisor.getFirstName());
-		adminManagementRemote.demissionnerSupervisor(superVisor,gererCateg.getCategory());;
+		adminManagementRemote.DisableAccount(superVisor);
 
-		return "/User/admin/listSupervisors?faces-redirect=true";
+		return "/User/admin/userList?faces-redirect=true";
 	}
 	
 	public String update() {
 		System.out.println("cin  "+superVisor.getFirstName());
 		adminManagementRemote.modifierSupervisor(superVisor);
 
-		return "/User/admin/listSupervisors?faces-redirect=true";
+		return "/User/admin/userList?faces-redirect=true";
 	}
 	
+	public String ajouterSup() {
+		
+		adminManagementRemote.ajouterSupervisor(superVisor);
+		return "/User/admin/userList?faces-redirect=true";
+	}
 	
 	public String ajouter() {
 		adminManagementRemote.affecterSupervisorCategory(superVisor,gererCateg.getCategory());
-
-		return "/User/admin/listSupervisors?faces-redirect=true";
+		
+		return "/User/admin/userList?faces-redirect=true";
 	}
 
 

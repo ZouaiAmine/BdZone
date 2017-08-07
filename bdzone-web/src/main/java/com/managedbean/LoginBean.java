@@ -47,7 +47,15 @@ public class LoginBean{
 	public String DisableAccount()
 	{
 		loginRemote.DisableAccount(user);
-		return "/Disabled?faces-redirect=true";
+		return "login/Disabled?faces-redirect=true";
+		
+		
+	}
+	
+	public String consultUsers()
+	{
+		
+		return "User/admin/userList?faces-redirect=true";
 		
 		
 	}
@@ -60,7 +68,7 @@ public class LoginBean{
 		if (user instanceof Admin) {
 			setLogin(user.getLogin());
 			
-			return "/User/admin/acceuil?faces-redirect=true";
+			return "/User/admin/NewFile?faces-redirect=true";
 		} else if (user instanceof SuperVisor) {
 			setLogin(user.getLogin());
 			return "/User/superVisor/acceuil?faces-redirect=true";
@@ -69,7 +77,7 @@ public class LoginBean{
 			return "/User/trainee/acceuil?faces-redirect=true";
 		} else {
 			FacesContext.getCurrentInstance().addMessage("authId:pwdId", new FacesMessage("n'existe pas"));
-			return "/error?faces-redirect=true";
+			return "/login/error?faces-redirect=true";
 		}
 
 		// redirection

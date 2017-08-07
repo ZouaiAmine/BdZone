@@ -17,7 +17,7 @@
 				<h:inputText id="firstname" required="true"
 					requiredMessage="firstname is required"
 					value="#{subscribtionBean.firstName}" />
-				<h:outputLabel for="firstname" value="firstname" />
+					<h:outputLabel for="firstname" value="firstname" />
 			</div>
 			<div class="col.s12 input-field">
 				<h:inputText id="lastName" required="true"
@@ -44,9 +44,9 @@
 					<h:outputLabel for="typeUser" value="typeUser" />
 
 					<h:selectOneMenu value="#{subscribtionBean.typeUser}">
-						<f:selectItem itemLabel="employe" itemValue="User" />
-						<f:selectItem itemLabel="technicien" itemValue="SuperVisor" />
-						<f:selectItem itemLabel="chercheur" itemValue="Trainee" />
+						<f:selectItem itemLabel="User" itemValue="User" />
+						<f:selectItem itemLabel="SuperVisor" itemValue="SuperVisor" />
+						<f:selectItem itemLabel="Trainee" itemValue="Trainee" />
 						<f:selectItem itemLabel="admin" itemValue="Admin" />
 					</h:selectOneMenu>
 				</h:panelGrid>

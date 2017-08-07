@@ -43,4 +43,8 @@ public interface AdminManagementRemote {
 
 	SuperVisor chercherSuperVisorParId(int id);
 
+	void ajouterSupervisor(SuperVisor superVisor);
+
+	void DisableAccount(SuperVisor u);
+
 }

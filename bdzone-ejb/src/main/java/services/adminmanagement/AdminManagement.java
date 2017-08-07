@@ -85,6 +85,12 @@ public class AdminManagement implements AdminManagementRemote {
 	}
 
 	@Override
+	public void ajouterSupervisor(SuperVisor superVisor) {
+		
+		 entityManager.persist(superVisor);
+	}
+	
+	@Override
 	public void demissionnerSupervisor(SuperVisor superVisor, Category category) {
 
 		// récupérer le labo (context de persistence)
@@ -97,12 +103,12 @@ public class AdminManagement implements AdminManagementRemote {
 		// supprimer
 		// vérifier que l'employé est affecté au labo passé en paramètres
 		if (superVisor.getCategory().getId_Catg() == category.getId_Catg()) {
-//			/**
-//			 * on a décidé pour la logique métier qu'un enmployé qui démissionne
-//			 * on l'efface de la BD, si on voulais le garder il suffisait de
-//			 * faire : employe.setLabo(null); rien pour supprimer la FK avec
-//			 * labo
-//			 **/
+			/**
+			 * on a décidé pour la logique métier qu'un enmployé qui démissionne
+			 * on l'efface de la BD, si on voulais le garder il suffisait de
+			 * faire : employe.setLabo(null); rien pour supprimer la FK avec
+			 * labo
+			 **/
 			entityManager.remove(superVisor);
 		}
 	}
@@ -138,6 +144,7 @@ public class AdminManagement implements AdminManagementRemote {
 	@Override
 	public List<Trainee> afficherTrainees() {
 		TypedQuery<Trainee> query =  entityManager.createQuery("select h from Trainee h", Trainee.class);
+		
 		return query.getResultList();
 	}
 	
@@ -170,7 +177,12 @@ public class AdminManagement implements AdminManagementRemote {
 	
     
     
-    
+	@Override
+	public void DisableAccount(SuperVisor u){
+		u.setBaned(true);
+		entityManager.merge(u);
+		
+	}
 
 public void ajouterUser(User user) {
 	/*
@@ -193,6 +205,8 @@ public void ajouterUser(User user) {
 	entityManager.persist(user);
 
 }}
+
+
 
 /*
 @Override

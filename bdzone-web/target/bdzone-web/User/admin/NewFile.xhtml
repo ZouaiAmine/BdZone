@@ -1,79 +1,92 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui">
-                <h:head>
-              
-<title><ui:insert name="title" /></title>
-                </h:head>
-      <h:body>          	
-<p:layout fullPage="true">
- 
-    <p:layoutUnit position="north" size="100" resizable="false" closable="false" collapsible="false">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
 
-   	<img src="../../images/businessdecision.png" alt="" height="80" width="1200"/>
+	<title><ui:insert name="title" /></title>
+</h:head>
+<h:body>
+	<p:layout fullPage="true">
 
-    </p:layoutUnit>
- 
- 
-    <p:layoutUnit position="west"  size="200" header="Menu" resizable="false" closable="false" collapsible="false">
-       <h:form>
-        
+		<p:layoutUnit position="north" size="100" resizable="false"
+			closable="false" collapsible="false">
 
-    <p:menu toggleable="true" width="200">
-        <p:submenu label="Users">
-            <p:menuitem value="Action On User" action="#{authenticiationBean.ActionOnUser()}"  icon="ui-icon-disk" />
-            <p:menuitem value="Consult User List" action="#{authenticiationBean.ConsultListUser()}"   icon="ui-icon-arrowrefresh-1-w"/>
-            <p:menuitem value="Consult Tree Service"  action="#{authenticiationBean.ConsultTreeService()}" icon="ui-icon-arrowrefresh-1-w"/>
-        </p:submenu>
-        <p:submenu label="Non-Ajax">
-            <p:menuitem value="Delete"   ajax="false" icon="ui-icon-close"/>
-        </p:submenu>
-        <p:submenu label="Navigations">
-            <p:menuitem value="External" url="http://www.primefaces.org" icon="ui-icon-home"/>
-            <p:menuitem value="Internal"  icon="ui-icon-star"/>
-        </p:submenu>
-    </p:menu>
-        </h:form>
-        
-    </p:layoutUnit>
- 
-    
- 
-    <p:layoutUnit position="center">
-     <h:form>  
-			    <div>Welcome   #{authenticiationBean.user.nom}
-			 #{authenticiationBean.user.prenom} 
-			  </div>  
-			   <div>
-			 
-			
-    <p:growl id="messages"/>
- 
-    <p:menubar>
-       <p:menuitem value="Home" url="/User/Admin/Dashboard.jsf" icon="ui-icon-home" />
-      <p:menuitem value="Profile" url="/Profile.jsf" icon="ui-icon-person" /> 
-            <p:menuitem value="Edit Profile" url="/Profile.jsf" icon="ui-icon-arrowrefresh-1-w" />   
-        
-        <p:menuitem value="Disable"   action="#{authenticiationBean.DisableAccount()}" icon="ui-icon-locked" />
- 
-        <f:facet name="options">
-            <p:inputText style="margin-right:10px" placeholder="Search"/>
-     <p:commandButton action="#{authenticiationBean.logout()}"
-					value="Logout" icon="ui-icon-extlink" />
-            
+			<img src="../../images/businessdecision.png" alt="" height="80"
+				width="500" />
 
-         </f:facet>
-    </p:menubar>
-    </div>
-</h:form>
+		</p:layoutUnit>
 
-<ui:insert name="content">
 
-</ui:insert>
-    </p:layoutUnit>
- 
-</p:layout>
+		<p:layoutUnit position="west" size="200" header="Menu"
+			resizable="false" closable="false" collapsible="false">
+			<h:form>
+
+
+				<p:menu toggleable="true" width="200">
+					<p:submenu label="Users">
+						<p:menuitem value="Action On User"
+							action="#{loginBean.consultUsers()}"
+							icon="ui-icon-disk" />
+						<p:menuitem value="Consult User List"
+							action="#{loginBean.consultUsers()}"
+							icon="ui-icon-arrowrefresh-1-w" />
+						<p:menuitem value="Consult Tree Service"
+							action="#{loginBean.consultUsers()}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<p:submenu label="Non-Ajax">
+						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
+					</p:submenu>
+					<p:submenu label="Navigations">
+						<p:menuitem value="External" url="http://www.primefaces.org"
+							icon="ui-icon-home" />
+						<p:menuitem value="Internal" icon="ui-icon-star" />
+					</p:submenu>
+				</p:menu>
+			</h:form>
+
+		</p:layoutUnit>
+
+
+
+		<p:layoutUnit position="center">
+			<h:form>
+
+				<div>
+
+
+					<p:growl id="messages" />
+
+					<p:menubar>
+						<p:menuitem value="Home" url="/User/Admin/Dashboard.jsf"
+							icon="ui-icon-home" />
+						<p:menuitem value="Profile" url="/Profile.jsf"
+							icon="ui-icon-person" />
+						<p:menuitem value="Edit Profile" url="/Profile.jsf"
+							icon="ui-icon-arrowrefresh-1-w" />
+
+						<p:menuitem value="Disable"
+							action="#{authenticiationBean.DisableAccount()}"
+							icon="ui-icon-locked" />
+
+						<f:facet name="options">
+							<p:inputText style="margin-right:10px" placeholder="Search" />
+							<p:commandButton action="#{authenticiationBean.logout()}"
+								value="Logout" icon="ui-icon-extlink" />
+
+
+						</f:facet>
+					</p:menubar>
+				</div>
+			</h:form>
+
+			<ui:insert name="content">
+
+			</ui:insert>
+		</p:layoutUnit>
+
+	</p:layout>
 </h:body>
 </html>

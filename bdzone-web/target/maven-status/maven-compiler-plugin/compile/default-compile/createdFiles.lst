@@ -2,6 +2,7 @@ com\managedbean\SubscribtionBean.class
 com\managedbean\CategoryMB.class
 com\managedbean\LoginBean.class
 com\managedbean\SupervisorMB.class
+com\managedbean\TraineeMB.class
 com\managedbean\QuestionMB.class
 com\managedbean\BasicView.class
 com\managedbean\TestBean.class
