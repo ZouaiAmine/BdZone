@@ -14,7 +14,7 @@
 			closable="false" collapsible="false">
 
 			<img src="../../images/businessdecision.png" alt="" height="80"
-				width="500" />
+				width="250" />
 
 		</p:layoutUnit>
 
@@ -36,8 +36,8 @@
 							action="#{loginBean.consultUsers()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
-					<p:submenu label="Non-Ajax">
-						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" />
+					<p:submenu label="Non-Ajax" styleClass="btn btn-large">
+						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" styleClass="btn btn-large" />
 					</p:submenu>
 					<p:submenu label="Navigations">
 						<p:menuitem value="External" url="http://www.primefaces.org"
@@ -74,7 +74,7 @@
 						<f:facet name="options">
 							<p:inputText style="margin-right:10px" placeholder="Search" />
 							<p:commandButton action="#{authenticiationBean.logout()}"
-								value="Logout" icon="ui-icon-extlink" />
+								value="Search" icon="ui-icon-extlink" />
 
 
 						</f:facet>

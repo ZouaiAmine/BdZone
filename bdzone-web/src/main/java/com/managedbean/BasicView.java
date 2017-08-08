@@ -33,7 +33,7 @@ public class BasicView   {
 
    private Trainee trainee ;
     private SuperVisor superVisor;
-    
+    private List<String> images;
     
     @PostConstruct
     public void init() {
@@ -44,6 +44,13 @@ public class BasicView   {
     	trainee = new Trainee();
         trainees=new ArrayList<Trainee>();
       	trainees=adminManagementRemote.afficherTrainees();
+      	
+      	
+      	images = new ArrayList<String>();
+        for (int i = 1; i <= 12; i++) {
+            images.add("nature" + i + ".jpg");
+        }
+      	
     }
 
 
@@ -80,6 +87,16 @@ public class BasicView   {
 
 	public void setTrainee(Trainee trainee) {
 		this.trainee = trainee;
+	}
+
+
+	public List<String> getImages() {
+		return images;
+	}
+
+
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
      
     

@@ -1,20 +1,21 @@
 package com.managedbean;
 
+import java.io.IOException;
+
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.*;
 import javax.faces.context.FacesContext;
+import javax.faces.application.FacesMessage;
 
-import entities.Admin;
-import entities.Category;
-import entities.SuperVisor;
-import entities.Trainee;
-import entities.User;
+
+import entities.*;
+
 import services.adminmanagement.AdminManagementRemote;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class SubscribtionBean {
      
     private String firstName;
@@ -23,7 +24,7 @@ public class SubscribtionBean {
     private String login;
     private String password;
     private String university;
-    private String typeUser ;
+   // private String typeUser ;
     private int experience ;
     private Category category ;
     
@@ -34,56 +35,104 @@ public class SubscribtionBean {
 	public String Subscribe() {
 		return "/login/auth?faces-redirect=true";
 	}
-    
-    public String register() {
-		switch (typeUser) {
-		case "User":
-			User user = new User(firstName, lastName, eMail);
-			//employe.setDateNaissance(dateNaissance);
-			user.seteMail(eMail);
-			user.setFirstName(firstName);
-			user.setLastName(lastName);
-			user.setLogin(login);
-			user.setPassword(password);
-			adminManagementRemote.ajouterUser(user);
-			
-			break;
-		case "SuperVisor":
-			SuperVisor superVisor = new SuperVisor();
-			superVisor.setFirstName(firstName);
-			superVisor.setLastName(lastName);
-			superVisor.setLogin(login);
-			superVisor.setPassword(password);
-			superVisor.setExperience(experience);
-			superVisor.setCategory(category);
-			
-			adminManagementRemote.ajouterUser(superVisor);
-			break;
-		case "Trainee":
-			Trainee trainee = new Trainee();
-			trainee.setFirstName(firstName);
-			trainee.setLastName(lastName);
-			trainee.setLogin(login);
-			trainee.setPassword(password);
-			trainee.setUniversity(university);
-			
-			
-			adminManagementRemote.ajouterUser(trainee);
-			break;
-		case "Admin":
-			Admin admin = new Admin();
-			admin.setFirstName(firstName);
-			admin.setLogin(login);
-			admin.setPassword(password);
-			break;
-		default:
-			break;
-			
-		}
-		//créer les facesMessages pour chaque validator
-		return "/login/auth?faces-redirect=true";
-	}
+	
 
+	private String type;
+
+    
+
+//	public String register(){
+//	return "/login/auth?faces-redirect=true";	
+//	}
+	
+			
+	public void regtr() {
+		if(type.equals("Supervisor"))
+	    	
+    	{
+				SuperVisor superVisor = new SuperVisor();
+				superVisor.setFirstName(firstName);
+				superVisor.setLastName(lastName);
+				superVisor.setLogin(login);
+				superVisor.setPassword(password);
+				superVisor.seteMail(eMail);
+				superVisor.setExperience(experience);
+				superVisor.setCategory(category);				
+			adminManagementRemote.ajouterUser(superVisor);
+//			
+    	}
+		  else 
+	        {
+			  
+			  Trainee trainee = new Trainee();
+			trainee.setFirstName(firstName);
+				trainee.setLastName(lastName);
+				trainee.setLogin(login);
+				trainee.setPassword(password);
+			trainee.setUniversity(university);
+			trainee.setEMail(eMail);
+			
+				
+				
+				adminManagementRemote.ajouterUser(trainee);
+	        }
+		
+
+	}
+	
+//    public String register() {
+//		switch (typeUser) {
+////		case "User":
+////			User user = new User(firstName, lastName, eMail);
+////			//employe.setDateNaissance(dateNaissance);
+////			user.seteMail(eMail);
+////			user.setFirstName(firstName);
+////			user.setLastName(lastName);
+////			user.setLogin(login);
+////			user.setPassword(password);
+////			adminManagementRemote.ajouterUser(user);
+////			
+////			break;
+//		case "SuperVisor":
+//			SuperVisor superVisor = new SuperVisor();
+//			superVisor.setFirstName(firstName);
+//			superVisor.setLastName(lastName);
+//			superVisor.setLogin(login);
+//			superVisor.setPassword(password);
+//			superVisor.setExperience(experience);
+//			superVisor.setCategory(category);
+//			
+//			adminManagementRemote.ajouterUser(superVisor);
+//			break;
+//		case "Trainee":
+//			Trainee trainee = new Trainee();
+//			trainee.setFirstName(firstName);
+//			trainee.setLastName(lastName);
+//			trainee.setLogin(login);
+//			trainee.setPassword(password);
+//			trainee.setUniversity(university);
+//			
+//			
+//			adminManagementRemote.ajouterUser(trainee);
+//			break;
+////		case "Admin":
+////			Admin admin = new Admin();
+////			admin.setFirstName(firstName);
+////			admin.setLogin(login);
+////			admin.setPassword(password);
+////			
+////			adminManagementRemote.ajouterUser(admin);
+////			break;
+//		default:
+//			break;
+//			
+//		}
+//		//créer les facesMessages pour chaque validator
+//		return "/login/auth?faces-redirect=true";
+//	}
+//
+//    
+   
     
     
 	public String getFirstName() {
@@ -122,12 +171,12 @@ public class SubscribtionBean {
 	public void setUniversity(String university) {
 		this.university = university;
 	}
-	public String getTypeUser() {
+	/*public String getTypeUser() {
 		return typeUser;
 	}
 	public void setTypeUser(String typeUser) {
 		this.typeUser = typeUser;
-	}
+	}*/
 
 
 
@@ -151,6 +200,14 @@ public class SubscribtionBean {
 
 	public Category getCategory() {
 		return category;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 

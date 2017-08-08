@@ -7,3 +7,4 @@ com\managedbean\QuestionMB.class
 com\managedbean\BasicView.class
 com\managedbean\TestBean.class
 com\Filter\AdminFilter.class
+com\managedbean\Remotemsg.class
