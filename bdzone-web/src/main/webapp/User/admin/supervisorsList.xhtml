@@ -5,7 +5,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 template="/User/admin/NewFile.xhtml">
 
-	<ui:define name="title">Users</ui:define>
+	<ui:define name="title">SuperVisors</ui:define>
 	<ui:define name="content">
 
 
@@ -55,61 +55,13 @@
 				<p:separator rendered="true"></p:separator>
 				<p:separator rendered="true"></p:separator>
 
-				<p:dataTable value="#{dtBasicView.trainees}" var="trainee">
-					<p:column headerText="Id">
-						<h:outputText value="#{trainee.id}" />
-					</p:column>
-
-					<p:column headerText="Prenom">
-						<h:outputText value="#{trainee.firstName}" />
-					</p:column>
-
-					<p:column headerText="Nom">
-						<h:outputText value="#{trainee.lastName}" />
-					</p:column>
-
-					<p:column headerText="Telephone">
-						<h:outputText value="#{trainee.EMail}" />
-					</p:column>
-					<p:column headerText="Baned">
-						<h:outputText value="#{trainee.baned}" />
-					</p:column>
-					<p:column headerText="University">
-						<h:outputText value="#{trainee.university}" />
-					</p:column>
-					<!-- <p:column headerText="Disable">
-        <h:commandButton action="#{supervisorMB.demissionner()}" value="Disable" />
-    </p:column> -->
-
-				</p:dataTable>
+				
 
 			<p:separator></p:separator>
 			<p:separator></p:separator>
 			<p:separator></p:separator>
 			<p:separator></p:separator>
 
-	<!-- 		<h:form>      
-    <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
-        <p:messages id="messages" />
- 
-        <h:panelGrid columns="4" cellpadding="5">
-            <h:outputLabel for="txt1" value="Text 1: *" />
-            <p:inputText id="txt1" value="#{supervisorMB.superVisor.login}" required="true" label="Text 1">
-                <f:validateLength minimum="2" />
-            </p:inputText>
-            <p:message for="txt1" />
-            <h:outputText value="#{searchView.text1}" />
- 
-            
-           
-        </h:panelGrid>
-    </p:panel>
- 
-    <h:panelGrid columns="2">
-        <p:commandButton process="@parent:@parent" update="@form" value="Process: @parent:parent (Form)" />
-        <p:commandButton process="@form:@child(1):txt1" update="@form" value="Process: @form:@child(1):txt1 (Text 1)" />
-    </h:panelGrid>
-</h:form>	 -->		
 
 			</h:form>
 		</h:body>

@@ -54,10 +54,18 @@ public class LoginBean{
 	
 	public String consultUsers()
 	{
-		
-		return "User/admin/userList?faces-redirect=true";
-		
-		
+		return "/User/admin/userList?faces-redirect=true";
+	}
+	
+	
+	public String consultSupervisors()
+	{
+		return "/User/admin/supervisorsList?faces-redirect=true";
+	}
+	
+	public String consultTrainees()
+	{
+		return "/User/admin/TraineesList?faces-redirect=true";
 	}
 	
 	

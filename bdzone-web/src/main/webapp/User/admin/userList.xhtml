@@ -88,7 +88,7 @@
 			<p:separator></p:separator>
 			<p:separator></p:separator>
 
-			<h:form>      
+	<!-- 		<h:form>      
     <p:panel id="panel" header="Search Form" style="margin-bottom:10px;">
         <p:messages id="messages" />
  
@@ -98,7 +98,7 @@
                 <f:validateLength minimum="2" />
             </p:inputText>
             <p:message for="txt1" />
-            <h:outputText value="#{supervisorMB.superVisor.login}" />
+            <h:outputText value="#{searchView.text1}" />
  
             
            
@@ -109,7 +109,7 @@
         <p:commandButton process="@parent:@parent" update="@form" value="Process: @parent:parent (Form)" />
         <p:commandButton process="@form:@child(1):txt1" update="@form" value="Process: @form:@child(1):txt1 (Text 1)" />
     </h:panelGrid>
-</h:form>			
+</h:form>	 -->		
 
 			</h:form>
 		</h:body>

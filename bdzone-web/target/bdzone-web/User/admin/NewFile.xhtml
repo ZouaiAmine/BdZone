@@ -23,11 +23,17 @@
 			resizable="false" closable="false" collapsible="false">
 			<h:form>
 
+ <p:menu toggleable="true" width="200">
+        <p:submenu label="Users">
+            <p:menuitem value="Action On User" 	action="#{loginBean.consultUsers()}"  icon="ui-icon-disk" />
+            <p:menuitem value="Consult User List"	action="#{loginBean.consultUsers()}"   icon="ui-icon-arrowrefresh-1-w"/>
+            <p:menuitem value="Consult Tree Service" 	action="#{loginBean.consultUsers()}" icon="ui-icon-arrowrefresh-1-w"/>
+        </p:submenu></p:menu>
 
 				<p:menu toggleable="true" width="200">
 					<p:submenu label="Users">
 						<p:menuitem value="Action On User"
-							action="#{loginBean.consultUsers()}"
+							url="../userList.jsf"
 							icon="ui-icon-disk" />
 						<p:menuitem value="Consult User List"
 							action="#{loginBean.consultUsers()}"

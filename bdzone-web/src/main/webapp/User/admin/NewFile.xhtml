@@ -23,27 +23,38 @@
 			resizable="false" closable="false" collapsible="false">
 			<h:form>
 
-
 				<p:menu toggleable="true" width="200">
 					<p:submenu label="Users">
 						<p:menuitem value="Action On User"
-							action="#{loginBean.consultUsers()}"
-							icon="ui-icon-disk" />
+							action="#{loginBean.consultSupervisors()}" icon="ui-icon-disk" />
 						<p:menuitem value="Consult User List"
-							action="#{loginBean.consultUsers()}"
+							action="#{loginBean.consultSupervisors()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 						<p:menuitem value="Consult Tree Service"
-							action="#{loginBean.consultUsers()}"
+							action="#{loginBean.consultSupervisors()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
+
+					<p:submenu label="Traines">
+						<p:menuitem value="Action On User"
+							action="#{loginBean.consultTrainees()}" icon="ui-icon-disk" />
+						<p:menuitem value="Consult Trainees List"
+							action="#{loginBean.consultTrainees()}"
+							icon="ui-icon-arrowrefresh-1-w" />
+						<p:menuitem value="Consult Tree Service"
+							action="#{loginBean.consultTrainees()}"
+							icon="ui-icon-arrowrefresh-1-w" />
+					</p:submenu>
+					<!-- 
 					<p:submenu label="Non-Ajax" styleClass="btn btn-large">
-						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close" styleClass="btn btn-large" />
+						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close"
+							styleClass="btn btn-large" />
 					</p:submenu>
 					<p:submenu label="Navigations">
 						<p:menuitem value="External" url="http://www.primefaces.org"
 							icon="ui-icon-home" />
 						<p:menuitem value="Internal" icon="ui-icon-star" />
-					</p:submenu>
+					</p:submenu> -->
 				</p:menu>
 			</h:form>
 
