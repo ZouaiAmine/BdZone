@@ -1,0 +1,70 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/User/admin/NewFile.xhtml">
+
+	<ui:define name="title">SuperVisors</ui:define>
+	<ui:define name="content">
+
+
+		<h:body>
+			<h:form>
+				<p:dataTable value="#{dtBasicView.superVisors}" var="user">
+					<p:column headerText="Id">
+						<h:outputText value="#{user.id}" />
+					</p:column>
+
+					<p:column headerText="Prenom">
+						<h:outputText value="#{user.firstName}" />
+					</p:column>
+
+					<p:column headerText="Nom">
+						<h:outputText value="#{user.lastName}" />
+					</p:column>
+
+					<p:column headerText="Telephone">
+						<h:outputText value="#{user.EMail}" />
+					</p:column>
+					<p:column headerText="Category">
+						<h:outputText value="#{user.category.categoryType}" />
+
+					</p:column>
+					<p:column headerText="Baned">
+						<h:outputText value="#{user.baned}" />
+					</p:column>
+					<p:column headerText="Disable">
+						<h:commandButton action="#{supervisorMB.demissionner(user)}"
+							value="Disable" onclick="disabled"/>
+							
+					</p:column>
+
+				</p:dataTable>
+				<p:separator rendered="true">
+					<p:spacer></p:spacer>
+				</p:separator>
+				<p:separator rendered="true"></p:separator>
+				<p:separator rendered="true">
+					<p:spacer></p:spacer>
+				</p:separator>
+				<p:separator rendered="true"></p:separator>
+				<p:separator rendered="true"></p:separator>
+				<p:separator rendered="true">
+					<p:spacer></p:spacer>
+				</p:separator>
+				<p:separator rendered="true"></p:separator>
+				<p:separator rendered="true"></p:separator>
+
+				
+
+			<p:separator></p:separator>
+			<p:separator></p:separator>
+			<p:separator></p:separator>
+			<p:separator></p:separator>
+
+
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

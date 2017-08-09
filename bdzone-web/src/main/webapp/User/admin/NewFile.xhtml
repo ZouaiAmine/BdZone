@@ -34,7 +34,8 @@
 							action="#{loginBean.consultSupervisors()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
-
+				</p:menu>
+				<p:menu>
 					<p:submenu label="Traines">
 						<p:menuitem value="Action On User"
 							action="#{loginBean.consultTrainees()}" icon="ui-icon-disk" />
@@ -45,7 +46,7 @@
 							action="#{loginBean.consultTrainees()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
-					<!-- 
+					
 					<p:submenu label="Non-Ajax" styleClass="btn btn-large">
 						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close"
 							styleClass="btn btn-large" />
@@ -54,7 +55,7 @@
 						<p:menuitem value="External" url="http://www.primefaces.org"
 							icon="ui-icon-home" />
 						<p:menuitem value="Internal" icon="ui-icon-star" />
-					</p:submenu> -->
+					</p:submenu>
 				</p:menu>
 			</h:form>
 
@@ -71,7 +72,7 @@
 					<p:growl id="messages" />
 
 					<p:menubar>
-						<p:menuitem value="Home" url="/User/Admin/Dashboard.jsf"
+						<p:menuitem value="Home" url="/User/admin/acceuil.jsf"
 							icon="ui-icon-home" />
 						<p:menuitem value="Profile" url="/Profile.jsf"
 							icon="ui-icon-person" />
@@ -79,12 +80,12 @@
 							icon="ui-icon-arrowrefresh-1-w" />
 
 						<p:menuitem value="Disable"
-							action="#{authenticiationBean.DisableAccount()}"
+							action="#{loginBean.DisableAccount()}"
 							icon="ui-icon-locked" />
 
 						<f:facet name="options">
 							<p:inputText style="margin-right:10px" placeholder="Search" />
-							<p:commandButton action="#{authenticiationBean.logout()}"
+							<p:commandButton action="#{questionMB.deleteQuestion()}"
 								value="Search" icon="ui-icon-extlink" />
 
 

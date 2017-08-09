@@ -47,4 +47,6 @@ public interface AdminManagementRemote {
 
 	void DisableAccount(SuperVisor u);
 
+	void updatee(Trainee trainee);
+
 }

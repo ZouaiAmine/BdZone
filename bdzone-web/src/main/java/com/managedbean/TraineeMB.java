@@ -29,14 +29,19 @@ public class TraineeMB implements Serializable {
 
 	private Boolean renderList;
 	private Boolean renderAddForm;
-	private SuperVisor superVisor;
+	private Trainee trainee;
 	private Boolean renderUpdateForm;
+	
+	private String lastName ;
+	private String firstName ;
+	private String email ;
+	
 
 	
 	@PostConstruct
 	public void init() {
 		System.out.println("new gererEmplBean!!!!!!!!!!!!!!!!");
-		
+		//trainee = new Trainee() ;
 		trainees = adminManagementRemote.afficherTrainees();
 		renderAddForm = false;
 		setRenderUpdateForm(false);
@@ -68,13 +73,29 @@ public class TraineeMB implements Serializable {
 //		return "/User/admin/userList?faces-redirect=true";
 //	}
 	
-//	public String ajouterTrainee() {
-//		
-//		adminManagementRemote.ajouterTrainee(trainee);
-//		return "/User/admin/userList?faces-redirect=true";
-//	}
-//	
-//	
+	public String ajouterTrainee() {
+		
+		adminManagementRemote.ajouterTrainee(trainee);
+		return "/User/admin/userList?faces-redirect=true";
+	}
+	
+	
+	
+	public String update() {
+		System.out.println("cin  "+trainee.getFirstName());
+		trainee.seteMail(email);
+		trainee.setFirstName(firstName);
+		trainee.setLastName(lastName);
+		adminManagementRemote.updatee(trainee);
+
+		return "User/admin/userList?faces-redirect=true";
+	}
+	
+	
+	
+	
+	
+	
 	
 	public List<Trainee> getTrainees() {
 		return trainees;
@@ -106,14 +127,7 @@ public class TraineeMB implements Serializable {
 	}
 
 
-	public SuperVisor getSuperVisor() {
-		return superVisor;
-	}
-
-
-	public void setSuperVisor(SuperVisor superVisor) {
-		this.superVisor = superVisor;
-	}
+	
 
 
 	public Boolean getRenderUpdateForm() {
@@ -123,6 +137,54 @@ public class TraineeMB implements Serializable {
 
 	public void setRenderUpdateForm(Boolean renderUpdateForm) {
 		this.renderUpdateForm = renderUpdateForm;
+	}
+
+
+
+	public Trainee getTrainee() {
+		return trainee;
+	}
+
+
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
+	}
+
+
+
+	public String getLastName() {
+		return lastName;
+	}
+
+
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

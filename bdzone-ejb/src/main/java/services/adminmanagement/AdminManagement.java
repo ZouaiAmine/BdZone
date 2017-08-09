@@ -140,6 +140,11 @@ public class AdminManagement implements AdminManagementRemote {
 		// TODO Auto-generated method stub
 		return entityManager.merge(trainee);
 	}
+	@Override
+	public void updatee(Trainee trainee) {
+		// TODO Auto-generated method stub
+	 entityManager.merge(trainee);
+	}
 	
 	@Override
 	public List<Trainee> afficherTrainees() {

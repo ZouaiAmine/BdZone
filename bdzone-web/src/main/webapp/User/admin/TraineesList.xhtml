@@ -1,17 +1,16 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                template="/User/admin/NewFile.xhtml">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/User/admin/NewFile.xhtml">
 
 	<ui:define name="title">Trainees</ui:define>
-	<ui:define name="content">
+	<!-- <ui:define name="content">
 
 
-		<h:body>
-			<h:form>
 		
+			<h:form>
+
 				<p:separator rendered="true">
 					<p:spacer></p:spacer>
 				</p:separator>
@@ -49,20 +48,115 @@
 					<p:column headerText="University">
 						<h:outputText value="#{trainee.university}" />
 					</p:column>
-					<!-- <p:column headerText="Disable">
+					<p:column headerText="Baned">
+						<h:outputText value="#{trainee.baned}" />
+					</p:column>
+					<p:column headerText="Disable">
+						<h:commandButton action="#{supervisorMB.demissionner(user)}"
+							value="Disable" onclick="disabled"/>
+							
+					</p:column>
+					<p:column headerText="Disable">
         <h:commandButton action="#{supervisorMB.demissionner()}" value="Disable" />
-    </p:column> -->
+    </p:column>
 
 				</p:dataTable>
+				<p:commandButton value="search" action="#{adBean.search()}"></p:commandButton>
 
-			<p:separator></p:separator>
-			<p:separator></p:separator>
-			<p:separator></p:separator>
-			<p:separator></p:separator>
+				<p:separator></p:separator>
+				<p:separator></p:separator>
+				<p:separator></p:separator>
+				<p:separator></p:separator>
+</h:form>
+				<h:form rendered="#{traineeMB.renderUpdateForm}">
+					<h:panelGrid rendered="#{traineeMB.renderUpdateForm}" columns="2">
+						<h:outputLabel value="CIN" />
+						<h:inputText value="#{traineeMB.trainee.EMail}" />
 
-           
-     
-			</h:form>
-		</h:body>
+						<h:outputLabel value="login" />
+						<h:inputText value="#{traineeMB.trainee.firstName}" />
+
+						<h:outputLabel value="nom" />
+						<h:inputText value="#{traineeMB.trainee.lastName}" />
+						<h:commandButton action="#{traineeMB.update()}"
+							value="Modifier" />
+					</h:panelGrid>
+				</h:form>
+
+
+			
+		
+	</ui:define> -->
+	
+		<ui:define name="content">
+		<!-- lister les employes -->
+		<h:form>
+			<h:dataTable rendered="#{traineeMB.renderList}" border="2"
+				value="#{traineeMB.trainees}" var="e">
+				<f:facet name="Liste d'trainees"></f:facet>
+				<h:column>
+					<f:facet name="header">CIN</f:facet>
+					<h:outputText value="#{e.EMail}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">nom</f:facet>
+					<h:outputText value="#{e.lastName}" />
+				</h:column>
+				<!-- <h:column>
+					<f:facet name="header">demissionner</f:facet>
+					<h:commandButton action="#{gererEmployeBean.demissionner(e)}"
+						value="demissionner" />
+				</h:column> -->
+				<h:column>
+					<f:facet name="header">Mise a jour</f:facet>
+					<h:commandButton value="mise à jour">
+						<f:setPropertyActionListener value="#{e}"
+							target="#{traineeMB.trainee}" />
+						<f:setPropertyActionListener value="true"
+							target="#{traineeMB.renderUpdateForm}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+
+		<h:form>
+			<h:commandButton value="Afficher formulaire ajout">
+				<f:setPropertyActionListener value="true"
+					target="#{traineeMB.renderAddForm}" />
+			</h:commandButton>
+		</h:form>
+
+		<!-- ajouter un empl -->
+		<h:form rendered="#{traineeMB.renderAddForm}">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="CIN" />
+				<h:inputText value="#{traineeMB.trainee.EMail}" />
+
+				<h:outputLabel value="login" />
+				<h:inputText value="#{traineeMB.trainee.firstName}" />
+
+				<h:outputLabel value="nom" />
+				<h:inputText value="#{traineeMB.trainee.lastName}" />
+				<h:commandButton action="#{traineeMB.ajouterTrainee()}"
+					value="Ajouter" />
+			</h:panelGrid>
+		</h:form>
+		<!-- modifier un emplo -->
+		<h:form rendered="#{traineeMB.renderUpdateForm}">
+					<h:panelGrid columns="2">
+						<h:outputLabel value="CIN" />
+						<h:inputText value="#{traineeMB.email}" />
+
+						<h:outputLabel value="login" />
+						<h:inputText value="#{traineeMB.firstName}" />
+						<h:outputLabel value="nom" />
+						<h:inputText value="#{traineeMB.lastName}" />
+						<h:commandButton action="#{traineeMB.update()}"
+							value="Modifier" />
+					</h:panelGrid>
+				</h:form>
+
 	</ui:define>
+	
 </ui:composition>

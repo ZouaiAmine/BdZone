@@ -35,8 +35,9 @@
 						<h:outputText value="#{user.baned}" />
 					</p:column>
 					<p:column headerText="Disable">
-						<h:commandButton action="#{supervisorMB.demissionner()}"
-							value="Disable" />
+						<h:commandButton action="#{supervisorMB.demissionner(user)}"
+							value="Disable" onclick="disabled"/>
+							
 					</p:column>
 
 				</p:dataTable>

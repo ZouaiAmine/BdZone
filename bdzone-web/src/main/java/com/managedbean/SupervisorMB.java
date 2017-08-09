@@ -59,15 +59,15 @@ public class SupervisorMB implements Serializable {
 		}
 	}
 
-
-	
 	public String demissionner(SuperVisor superVisor) {
 		System.out.println("in !!!!!");
 		System.out.println("employe "+superVisor.getFirstName());
 		adminManagementRemote.DisableAccount(superVisor);
 
-		return "/User/admin/userList?faces-redirect=true";
+		return "/User/admin/supervisorsList?faces-redirect=true";
 	}
+	
+
 	
 	public String update() {
 		System.out.println("cin  "+superVisor.getFirstName());
