@@ -9,9 +9,11 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
 import services.adminmanagement.AdminManagementRemote;
+import services.usermanagement.QuestionsRemote;
 
 @ManagedBean
 @RequestScoped
@@ -21,6 +23,9 @@ public class TraineeMB implements Serializable {
 
 	@EJB
 	AdminManagementRemote adminManagementRemote;
+	@EJB
+	QuestionsRemote questionsRemote;
+	
 	
 	private List<Trainee> trainees;
 	//Trainee trainee;
@@ -31,7 +36,8 @@ public class TraineeMB implements Serializable {
 	private Boolean renderAddForm;
 	private Trainee trainee;
 	private Boolean renderUpdateForm;
-	
+	private int idQtion ;
+	private String descriptionQ ;
 	private String lastName ;
 	private String firstName ;
 	private String email ;
@@ -41,7 +47,7 @@ public class TraineeMB implements Serializable {
 	@PostConstruct
 	public void init() {
 		System.out.println("new gererEmplBean!!!!!!!!!!!!!!!!");
-		//trainee = new Trainee() ;
+		trainee = new Trainee() ;
 		trainees = adminManagementRemote.afficherTrainees();
 		renderAddForm = false;
 		setRenderUpdateForm(false);
@@ -65,13 +71,13 @@ public class TraineeMB implements Serializable {
 //		return "/User/admin/listSupervisors?faces-redirect=true";
 //	}
 	
-//	public String update() {
-//	
-//		System.out.println("name : "+trainee.getFirstName());
-//		adminManagementRemote.modifierTainee(trainee);
-//
-//		return "/User/admin/userList?faces-redirect=true";
-//	}
+	public String update() {
+	
+		System.out.println("name : "+trainee.getFirstName());
+		adminManagementRemote.modifierTainee(trainee);
+
+		return "/User/admin/userList?faces-redirect=true";
+	}
 	
 	public String ajouterTrainee() {
 		
@@ -79,17 +85,45 @@ public class TraineeMB implements Serializable {
 		return "/User/admin/userList?faces-redirect=true";
 	}
 	
-	
-	
-	public String update() {
-		System.out.println("cin  "+trainee.getFirstName());
-		trainee.seteMail(email);
-		trainee.setFirstName(firstName);
-		trainee.setLastName(lastName);
-		adminManagementRemote.updatee(trainee);
 
-		return "User/admin/userList?faces-redirect=true";
+	public void askQuestion() {
+		Trainee trainee =new Trainee() ;
+		Question qtion= new Question() ;
+//		qtion.setIdQuestion(idQtion);
+//		qtion.setTrainee(trainee);
+		qtion.setDescriptionQ(descriptionQ);
+		questionsRemote.addQuestion(qtion); 
+		
 	}
+
+	public void updateQuestion() {
+		Trainee trainee =new Trainee() ;
+		Question qtion= new Question() ;
+		qtion.setIdQuestion(idQtion);
+		qtion.setTrainee(trainee);
+		
+	}
+	
+	
+	
+//	
+//	public String update() {
+//		System.out.println("cin  "+trainee.getFirstName());
+//		trainee.seteMail(email);
+//		trainee.setFirstName(firstName);
+//		trainee.setLastName(lastName);
+//		adminManagementRemote.updatee(trainee);
+//
+//		return "User/admin/userList?faces-redirect=true";
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -185,6 +219,26 @@ public class TraineeMB implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+
+
+	
+
+	public void setIdQtion(int idQtion) {
+		this.idQtion = idQtion;
+	}
+
+
+
+	public String getDescriptionQ() {
+		return descriptionQ;
+	}
+
+
+
+	public void setDescriptionQ(String descriptionQ) {
+		this.descriptionQ = descriptionQ;
 	}
 
 }

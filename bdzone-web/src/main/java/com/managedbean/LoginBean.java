@@ -70,6 +70,7 @@ public class LoginBean{
 	
 	
 	
+	
 	public String doLogin() {
 		 user = loginRemote.identifierUser(login, password);
 

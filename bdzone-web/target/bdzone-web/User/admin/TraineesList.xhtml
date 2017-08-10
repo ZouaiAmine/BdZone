@@ -146,12 +146,12 @@
 		<h:form rendered="#{traineeMB.renderUpdateForm}">
 					<h:panelGrid columns="2">
 						<h:outputLabel value="CIN" />
-						<h:inputText value="#{traineeMB.email}" />
+						<h:inputText value="#{traineeMB.trainee.EMail}" />
 
 						<h:outputLabel value="login" />
-						<h:inputText value="#{traineeMB.firstName}" />
+						<h:inputText value="#{traineeMB.trainee.firstName}" />
 						<h:outputLabel value="nom" />
-						<h:inputText value="#{traineeMB.lastName}" />
+						<h:inputText value="#{traineeMB.trainee.lastName}" />
 						<h:commandButton action="#{traineeMB.update()}"
 							value="Modifier" />
 					</h:panelGrid>
