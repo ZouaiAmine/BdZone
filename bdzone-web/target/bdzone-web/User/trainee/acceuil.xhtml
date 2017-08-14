@@ -15,20 +15,35 @@
 
 			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
 
-				<p:outputLabel for="car" value="Grouping: " />
-				<p:selectOneMenu id="car" value="#{questionMB.category}">
+				<!-- <p:outputLabel for="console" value="Basic:" />
+				<p:selectOneMenu id="console" value="#{questionMB.category}"
+					style="width:125px">
 					<f:selectItem itemLabel="Select One" itemValue="" />
-					<f:selectItems value="#{questionMB.categories}" />
-				</p:selectOneMenu>
+					<f:selectItem itemLabel="Xbox One"
+						itemValue="#{traineeMB.category}" />
+					<f:selectItem itemLabel="PS4" itemValue="#{traineeMB.category}" />
+					<f:selectItem itemLabel="Wii U" itemValue="#{traineeMB.category}" />
+				</p:selectOneMenu> -->
 
+				<h:selectOneMenu value="#{traineeMB.question.type}">
+					<f:selectItems value="#{traineeMB.types}" />
+				</h:selectOneMenu>
 
-
-
+				<!-- 
+				<h3>Responsive</h3>
+				<p:selectOneRadio id="type" value="#{traineeMB.category.module}"
+					layout="responsive" columns="3">
+					<f:selectItem value="#{traineeMB.categories}" itemLabel="category"
+						itemValue="category"></f:selectItem>
+				</p:selectOneRadio> -->
 			</h:panelGrid>
 
-			<p:commandButton value="Submit" update="display"
-				oncomplete="PF('dlg').show()" icon="ui-icon-check" />
 
+
+
+			<!-- <p:commandButton value="Submit" update="display"
+				oncomplete="PF('dlg').show()" icon="ui-icon-check" />
+ -->
 			<p:dialog header="Values" modal="true" showEffect="bounce"
 				widgetVar="dlg" resizable="false">
 				<p:panelGrid columns="2" id="display" columnClasses="label,value">
@@ -48,17 +63,18 @@
 				value="#{traineeMB.descriptionQ}" width="600" />
 
 			<h:panelGrid columns="2" style="margin-top: 10px">
-				<p:commandButton value="Submit" update="display"
-					oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
+				<p:commandButton value="Post" action="#{traineeMB.askQuestion()}"
+					update="display" oncomplete="PF('dlg').show()" icon="ui-icon-disk" />
 
-				<h:commandButton value="post" action="#{traineeMB.askQuestion()}"></h:commandButton>
+				<!-- <h:commandButton value="post" action="#{traineeMB.askQuestion()}"></h:commandButton> -->
 				<p:commandButton value="Clear" type="button"
 					onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
 			</h:panelGrid>
 
-			<p:dialog header="Content" widgetVar="dlg" showEffect="fade"
-				hideEffect="fade">
-				<h:outputText id="display" value="#{traineeMB.descriptionQ}" escape="false" />
+			<p:dialog header="Your Question is Posted" widgetVar="dlg"
+				showEffect="fade" hideEffect="fade">
+				<h:outputText id="display" value="#{traineeMB.descriptionQ}"
+					escape="false" />
 			</p:dialog>
 		</h:form>
 

@@ -20,6 +20,9 @@ public class Question implements Serializable {
 	
 	private String descriptionQ ;
 	
+	@Enumerated(EnumType.STRING)
+	private CategoryType type ;
+	
 	private static final long serialVersionUID = 1L;
 	
 	@OneToMany
@@ -104,6 +107,14 @@ public class Question implements Serializable {
 
 	public void setSuperVisor(SuperVisor superVisor) {
 		this.superVisor = superVisor;
+	}
+
+	public CategoryType getType() {
+		return type;
+	}
+
+	public void setType(CategoryType type) {
+		this.type = type;
 	}
    
 }

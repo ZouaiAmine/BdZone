@@ -61,8 +61,8 @@
 					value="Register" styleClass="btn btn-large"/>
 				<p:resizable></p:resizable>	
 					
-				<h:remoteCommand name="rc" update="msgs"
-					actionListener="#{remotemsg.execute()}" />
+				<!-- <h:remoteCommand name="rc" update="msgs"
+					actionListener="#{remotemsg.execute()}" /> -->
 
 				<p:growl id="msgs" showDetail="true" />
 				<p:commandButton action="#{subscribtionBean.regtr()}" type="button" onclick="rc()" value="Register" styleClass="btn btn-large"

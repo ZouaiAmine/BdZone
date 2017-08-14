@@ -37,20 +37,20 @@ public class QuestionMB {
 		private Admin admin ;
 		private String text ;
 		  
-		    private List<SelectItem> categories;
+		   // private List<SelectItem> categories;
 		
 		private String[] selectedCategory;
 	    //private String[] selectedCities2;
-	   // private List<String> categories;
+	    private List<String> categories;
 	     
 	    @PostConstruct
 	    public void init() {
-//	    	categories = new ArrayList<String>();
-//	    	categories.add("JAVA");
-//	    	categories.add("ASP.NET");
-//	    	categories.add("JSF");
-//	    	categories.add("BI");
-//	    	categories.add("php");
+	    	categories = new ArrayList<String>();
+	    	categories.add("JAVA");
+	    	categories.add("ASP.NET");
+	    	categories.add("JSF");
+	    	categories.add("BI");
+	    	categories.add("php");
 	    
 //	    
 //	    	 SelectItemGroup g1 = new SelectItemGroup("JAVA");
@@ -99,13 +99,13 @@ public class QuestionMB {
 			this.selectedCategory = selectedCategory;
 		}
 
-		public List<SelectItem> getCategories() {
-			return categories;
-		}
-
-		public void setCategories(List<SelectItem> categories) {
-			this.categories = categories;
-		}
+//		public List<SelectItem> getCategories() {
+//			return categories;
+//		}
+//
+//		public void setCategories(List<SelectItem> categories) {
+//			this.categories = categories;
+//		}
 
 		public void POST() {
 			
@@ -197,6 +197,42 @@ public class QuestionMB {
 
 		public void setText(String text) {
 			this.text = text;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		public List<String> getCategories() {
+			return categories;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		public void setCategories(List<String> categories) {
+			this.categories = categories;
 		}
 }
 	

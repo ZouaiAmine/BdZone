@@ -9,10 +9,13 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import entities.Category;
+import entities.CategoryType;
 import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
 import services.adminmanagement.AdminManagementRemote;
+import services.usermanagement.QuestionsLocal;
 import services.usermanagement.QuestionsRemote;
 
 @ManagedBean
@@ -29,9 +32,12 @@ public class TraineeMB implements Serializable {
 	
 	private List<Trainee> trainees;
 	//Trainee trainee;
-	//@ManagedProperty(value = "#{CategoryMB}")
+//	@ManagedProperty(value = "#{CategoryMB}")
 //	private CategoryMB gererCateg ;
-
+	private List<Category> categories1;
+	private List<String> categories;
+	private Category category ;
+	private Question question ;
 	private Boolean renderList;
 	private Boolean renderAddForm;
 	private Trainee trainee;
@@ -41,12 +47,15 @@ public class TraineeMB implements Serializable {
 	private String lastName ;
 	private String firstName ;
 	private String email ;
-	
-
+	private CategoryType type ;
+	//private List<CategoryType> types ;
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("new gererEmplBean!!!!!!!!!!!!!!!!");
+		//Category categ = new Category() ;
+		//categories1 =new ArrayList<Category>() ;
+		
+		
 		trainee = new Trainee() ;
 		trainees = adminManagementRemote.afficherTrainees();
 		renderAddForm = false;
@@ -61,6 +70,9 @@ public class TraineeMB implements Serializable {
 		}
 	}
 
+	 public CategoryType[] getTypes() {
+	        return CategoryType.values();
+	    }
 
 	
 //	public String stageTerminer(Trainee trainee) {
@@ -87,11 +99,14 @@ public class TraineeMB implements Serializable {
 	
 
 	public void askQuestion() {
-		Trainee trainee =new Trainee() ;
+	
 		Question qtion= new Question() ;
-//		qtion.setIdQuestion(idQtion);
-//		qtion.setTrainee(trainee);
+		//qtion.setIdQuestion(idQtion);
+	//	qtion.setTrainee(trainee);
+		qtion.setType(type);
+		//qtion.setCategory(category);
 		qtion.setDescriptionQ(descriptionQ);
+		//qtion.setTrainee(getTrainee());
 		questionsRemote.addQuestion(qtion); 
 		
 	}
@@ -116,19 +131,6 @@ public class TraineeMB implements Serializable {
 //
 //		return "User/admin/userList?faces-redirect=true";
 //	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	public List<Trainee> getTrainees() {
@@ -239,6 +241,71 @@ public class TraineeMB implements Serializable {
 
 	public void setDescriptionQ(String descriptionQ) {
 		this.descriptionQ = descriptionQ;
+	}
+
+
+
+	public Category getCategory() {
+		return category;
+	}
+
+
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+
+
+	public int getIdQtion() {
+		return idQtion;
+	}
+
+
+
+	public List<String> getCategories() {
+		return categories;
+	}
+
+
+
+	public void setCategories(List<String> categories) {
+		this.categories = categories;
+	}
+
+
+
+
+
+
+	public void setCategories1(List<Category> categories1) {
+		this.categories1 = categories1;
+	}
+
+
+
+	public List<Category> getCategories1() {
+		return categories1;
+	}
+
+	public Question getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(Question question) {
+		this.question = question;
+	}
+
+
+
+	public CategoryType getType() {
+		return type;
+	}
+
+
+
+	public void setType(CategoryType type) {
+		this.type = type;
 	}
 
 }

@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import entities.Category;
+import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
 import entities.User;
@@ -125,6 +126,15 @@ public class AdminManagement implements AdminManagementRemote {
 		return query.getResultList();
 	}
 
+	
+	public List<Question> listerQuestionByCateg(Category category) {
+		TypedQuery<Question> query = entityManager.createQuery("select e from Question e where e.category=:category", Question.class);
+		query.setParameter("category",category);
+		return query.getResultList();
+	}
+	
+	
+	
 	@Override
 	// avec cette même méthode on peut ajouter toutes les classes filles
 	// (technicien ect)
