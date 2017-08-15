@@ -24,4 +24,12 @@ public interface TraineeManagementRemote {
 
 	List<Keyword> findKeywordByDescription(Keyword keyword);
 
+
+
+	List<Question> afficherQuestions();
+
+
+
+	List<Question> afficherQuestions2();
+
 }

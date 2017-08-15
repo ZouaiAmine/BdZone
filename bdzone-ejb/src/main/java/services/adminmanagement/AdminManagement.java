@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import entities.Category;
+import entities.CategoryType;
 import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
@@ -61,6 +62,14 @@ public class AdminManagement implements AdminManagementRemote {
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Question> afficherQuestions() {
+		TypedQuery<Question> query =  entityManager.createQuery("select h from Question h", Question.class);
+		return query.getResultList();
+	}
+	
+	
+	
 	@Override
 	public String affecterSupervisorCategory(SuperVisor superVisor, Category category) {
 		// si categery n'existe pas em.persist(categery);
@@ -127,9 +136,9 @@ public class AdminManagement implements AdminManagementRemote {
 	}
 
 	
-	public List<Question> listerQuestionByCateg(Category category) {
-		TypedQuery<Question> query = entityManager.createQuery("select e from Question e where e.category=:category", Question.class);
-		query.setParameter("category",category);
+	public List<Question> listerQuestionByCateg(CategoryType categoryType) {
+		TypedQuery<Question> query = entityManager.createQuery("select e from Question e where e.categoryType=:categoryType", Question.class);
+		query.setParameter("categoryType",categoryType);
 		return query.getResultList();
 	}
 	
@@ -176,6 +185,8 @@ public class AdminManagement implements AdminManagementRemote {
 		return entityManager.find(SuperVisor.class, id);
 
 	}
+	
+	
 	
 	
 	@Override

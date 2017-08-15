@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/User/admin/NewFile.xhtml">
+
+	<ui:define name="title">Users</ui:define>
+	<ui:define name="content">
+
+
+		<h:body>
+			<h:form>
+				<p:dataTable value="#{dtBasicView.questions}" var="quest">
+					<p:column headerText="Id">
+						<h:outputText value="#{quest.idQuestion}" />
+					</p:column>
+
+					<p:column headerText="Desc">
+						<h:outputText value="#{quest.descriptionQ}" />
+					</p:column>
+
+						<p:column headerText="answers">
+						<h:outputText value="#{quest.answer}" />
+					</p:column>
+
+
+					<p:column headerText="FirstName">
+						<h:outputText value="#{quest.trainee.firstName}" />
+					</p:column>
+
+					<p:column headerText="Kword">
+						<h:outputText value="#{quest.kword}" />
+					</p:column>
+
+					<p:column headerText="LastName">
+						<h:outputText value="#{quest.trainee.lastName}" />
+					</p:column>
+					<!-- <p:column headerText="Keywords">
+						<h:outputText value="#{quest.keywords}" />
+					</p:column> -->
+
+					<!-- p:column headerText="Disable">
+        <h:commandButton action="#{dtBasicView.close(user)}" value="Disable" />
+    </p:column>
+     <p:column headerText="Remove">
+        <h:commandButton  action="#{dtBasicView.delete(user)}" value="Remove"/>
+    </p:column> -->
+				</p:dataTable>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

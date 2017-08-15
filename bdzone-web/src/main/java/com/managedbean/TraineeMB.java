@@ -103,8 +103,9 @@ public class TraineeMB implements Serializable {
 		Question qtion= new Question() ;
 		//qtion.setIdQuestion(idQtion);
 	//	qtion.setTrainee(trainee);
-		qtion.setType(type);
+		//qtion.setType(question.getType());
 		//qtion.setCategory(category);
+		
 		qtion.setDescriptionQ(descriptionQ);
 		//qtion.setTrainee(getTrainee());
 		questionsRemote.addQuestion(qtion); 

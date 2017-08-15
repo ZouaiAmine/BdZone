@@ -1,5 +1,7 @@
 package services.traineemanagment;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import entities.Question;
@@ -13,4 +15,5 @@ public interface TraineeManagementLocal {
 
 	String modifierQuest(Question question);
 
+	List<Question> afficherQuestions();
 }

@@ -2,6 +2,7 @@ package com.managedbean;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -10,7 +11,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.FlowEvent;
 
+import entities.Answer;
+import entities.AnswerPK;
+import entities.CategoryType;
+import entities.Keyword;
 import entities.Question;
+import entities.Trainee;
 import services.usermanagement.QuestionsRemote;
 
  
@@ -25,7 +31,16 @@ public class Wizard implements Serializable {
 
 	private Question question = new Question();
      private String descriptionQ ;
+     private Trainee trainee ;
+     private List<Answer> answers ;
+     private Answer answer ;
+     private String kword ;
+    private String fname ;
+     
+     private Keyword keyword ;
+     
     private boolean skip;
+    private CategoryType type ;
     
     @EJB
      QuestionsRemote questionsRemote ;
@@ -41,11 +56,18 @@ public class Wizard implements Serializable {
     	
 		Question qtion= new Question() ;
 		//qtion.setIdQuestion(idQtion);
-	//	qtion.setTrainee(trainee);
-	//	qtion.setType(type);
+		
+		trainee.setFirstName(fname);
+		qtion.setTrainee(trainee);
+		qtion.setType(type);
+	
+		//qtion.setAnswers(answers);
+		qtion.setAnswer(answer);
+		qtion.setKword(kword);
 		//qtion.setCategory(category);
 		qtion.setDescriptionQ(descriptionQ);
 		//qtion.setTrainee(getTrainee());
+		
 		questionsRemote.addQuestion(qtion); 
 		
 	}
@@ -84,4 +106,66 @@ public class Wizard implements Serializable {
 	public void setDescriptionQ(String descriptionQ) {
 		this.descriptionQ = descriptionQ;
 	}
+
+	public Trainee getTrainee() {
+		return trainee;
+	}
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
+	}
+
+	
+
+	public void setType(CategoryType type) {
+		this.type = type;
+	}
+
+	public CategoryType getType() {
+		return type;
+	}
+
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
+	public Answer getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+
+	public Keyword getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(Keyword keyword) {
+		this.keyword = keyword;
+	}
+
+	
+
+	public String getKword() {
+		return kword;
+	}
+
+	public void setKword(String kword) {
+		this.kword = kword;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+
 }

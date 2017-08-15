@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Entity
 
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+
 @DiscriminatorColumn(name="role")
 public class User implements Serializable {
 //public abstract class User implements Serializable {

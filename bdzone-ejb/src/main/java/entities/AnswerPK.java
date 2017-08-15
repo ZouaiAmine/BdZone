@@ -13,6 +13,7 @@ public class AnswerPK implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int idSupervisor ;
 	private int idQuestion ;
+	private String desc ;
 	
 	
 	public int getIdSupervisor() {
@@ -49,6 +50,12 @@ public class AnswerPK implements Serializable{
 		if (idSupervisor != other.idSupervisor)
 			return false;
 		return true;
+	}
+	public String getDesc() {
+		return desc;
+	}
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 
 	

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.ejb.Remote;
 
 import entities.Category;
+import entities.CategoryType;
+import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
 import entities.User;
@@ -49,4 +51,7 @@ public interface AdminManagementRemote {
 
 	void updatee(Trainee trainee);
 
+	List<Question> listerQuestionByCateg(CategoryType categoryType);
+
+	List<Question> afficherQuestions();
 }

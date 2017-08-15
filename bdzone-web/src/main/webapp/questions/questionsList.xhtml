@@ -19,44 +19,54 @@
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
 							<h:outputText value="Description: *" />
-							<p:inputText value="#{wizard.descriptionQ}"
-								required="true" label="Description" />
+							<p:editor id="editor" widgetVar="editorWidget"
+								value="#{wizard.descriptionQ}" width="600" />
+
 
 							<h:outputText value="Skip to last: " />
 							<h:selectBooleanCheckbox value="#{wizard.skip}" />
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
-				
-        <p:tab id="address" title="Address">
-            <p:panel header="Address Details">
-                <p:messages />
-                <h:panelGrid columns="2" columnClasses="label, value">
-                   
- 
-                    <h:outputText value="Type: " />
-                    <p:inputText value="#{wizard.descriptionQ}" />
- 
-                  
- 
-                    <h:outputText value="Skip to last: " />
-                    <h:selectBooleanCheckbox value="#{wizard.skip}" />
-                </h:panelGrid>
-            </p:panel>
-        </p:tab>
+
+				<p:tab id="address" title="Address">
+					<p:panel header="Address Details">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+
+
+							<h:outputText value="CategTypr: *" />
+							<p:inputText value="#{wizard.type}" label="Trainee" />
+
+
+
+
+
+							<h:outputText value="Skip to last: " />
+							<h:selectBooleanCheckbox value="#{wizard.skip}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
 
 				<p:tab id="contact" title="Contact">
-            <!-- <p:panel header="Contact Information">
-                <p:messages />
-                <h:panelGrid columns="2" columnClasses="label, value">
-                    <h:outputText value="Email: *" />
-                    <p:inputText value="#{wizard.question.trainee.EMail}" required="true" label="Email"/>
- 
-                  
-                  
-                </h:panelGrid>
-            </p:panel> -->
-        </p:tab>
+					<p:panel header="Contact Information">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<!-- <h:outputText value="answer *" />
+							<p:inputText value="#{wizard.answer}" required="true"
+								label="answer" /> -->
+
+							<h:outputText value="TraineeFN: *" />
+							<p:inputText value="#{wizard.fname}"
+								required="true" label="Trainee" />
+							<h:outputText value="key *" />
+							<p:inputText value="#{wizard.kword}" required="true"
+								label="Trainee" />
+
+
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
 
 				<p:tab id="confirm" title="Confirmation">
 					<p:panel header="Confirmation">
@@ -66,13 +76,21 @@
 								<h:outputText value="Desc " />
 								<h:outputText value="#{wizard.descriptionQ}"
 									styleClass="outputLabel" />
+								<!-- <h:outputText value="Trainee " />
+								<h:outputText value="#{wizard.trainee.firstName}"
+									styleClass="outputLabel" /> -->
+
+								<h:outputText value="answer " />
+								<h:outputText value="#{wizard.kword}" styleClass="outputLabel" />
+
+								<h:outputText value="fname " />
+								<h:outputText value="#{wizard.fname}" styleClass="outputLabel" />
 
 								<h:outputText value="Type " />
-								<h:outputText value="#{wizard.question.trainee.login}"
-									styleClass="outputLabel" />
+								<h:outputText value="#{wizard.type}" styleClass="outputLabel" />
 
 							</h:panelGrid>
-				<!-- 			
+							<!-- 			
                     <h:panelGrid columns="2" columnClasses="label, value">
                         <h:outputText value="Street: " />
                         <h:outputText value="#{wizard.question.type}" styleClass="outputLabel"/>
@@ -82,7 +100,7 @@
  
                      </h:panelGrid> -->
 
-							  <!-- <h:panelGrid columns="2" columnClasses="label, value">
+							<!-- <h:panelGrid columns="2" columnClasses="label, value">
                        
                         <h:outputText value="Phone " />
                         <h:outputText value="#{wizard.question.trainee.EMail}" styleClass="outputLabel"/>
@@ -95,7 +113,7 @@
                     </h:panelGrid> -->
 						</h:panelGrid>
 
-						<p:commandButton value="Submit" actionListener="#{wizard.save()}" action="#{wizard.askQuestion()}"
+						<p:commandButton value="Submit" action="#{wizard.askQuestion()}"
 							update="growl" process="@this" />
 					</p:panel>
 				</p:tab>

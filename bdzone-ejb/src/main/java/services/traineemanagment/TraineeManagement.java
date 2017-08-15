@@ -2,7 +2,7 @@ package services.traineemanagment;
 
 import java.util.List;
 
-import javax.ejb.LocalBean;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,12 +12,12 @@ import javax.persistence.TypedQuery;
 import entities.Keyword;
 import entities.Question;
 
+
 /**
  * Session Bean implementation class TraineeManagement
  */
 @Stateless
-@LocalBean
-public class TraineeManagement implements TraineeManagementRemote, TraineeManagementLocal {
+public class TraineeManagement implements TraineeManagementRemote{
 
     /**
      * Default constructor. 
@@ -59,7 +59,18 @@ public class TraineeManagement implements TraineeManagementRemote, TraineeManage
 		return query.getResultList();
 	}
 
-
+	
+	@Override
+	public List<Question> afficherQuestions() {
+		TypedQuery<Question> query =  entityManager.createQuery("select h from Question h", Question.class);
+		return query.getResultList();
+	}
+	
+	@Override
+	public List<Question> afficherQuestions2() {
+		TypedQuery<Question> query =  entityManager.createQuery("select h from Question h", Question.class);
+		return query.getResultList();
+	}
 
 
     

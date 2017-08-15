@@ -42,6 +42,9 @@ public class Question implements Serializable {
 	@OneToMany(mappedBy="question")
 	private List<Answer> answers ;
 	
+	private Answer answer;
+	private String kword;
+	
 	@ManyToOne
 	private SuperVisor superVisor ;
 	
@@ -115,6 +118,26 @@ public class Question implements Serializable {
 
 	public void setType(CategoryType type) {
 		this.type = type;
+	}
+
+	public Answer getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Answer answer) {
+		this.answer = answer;
+	}
+
+	
+
+
+
+	public String getKword() {
+		return kword;
+	}
+
+	public void setKword(String kword) {
+		this.kword = kword;
 	}
    
 }
