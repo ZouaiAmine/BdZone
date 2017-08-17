@@ -13,7 +13,7 @@
 		<p:layoutUnit position="north" size="100" resizable="false"
 			closable="false" collapsible="false">
 
-			<img src="../../images/businessdecision.png" alt="" height="80"
+			<img src="images/businessdecision.png"  height="80"
 				width="250" />
 
 		</p:layoutUnit>
@@ -26,13 +26,11 @@
 				<p:menu toggleable="true" width="200">
 					<p:submenu label="Users">
 						<p:menuitem value="Action On User"
-							action="#{loginBean.consultSupervisors()}" icon="ui-icon-disk" />
-						<p:menuitem value="Consult User List"
-							action="#{loginBean.consultSupervisors()}"
-							icon="ui-icon-arrowrefresh-1-w" />
-						<p:menuitem value="Consult Tree Service"
-							action="#{loginBean.consultSupervisors()}"
-							icon="ui-icon-arrowrefresh-1-w" />
+							action="#{loginBean.consultSupervisors()}" />
+						<p:menuitem value="Add Question by Category"
+							action="#{traineeMB.AddQuestionByCateg()}" />
+						<p:menuitem value="Consult Questions List"
+							action="#{traineeMB.ListerQuestions()}" />
 					</p:submenu>
 				</p:menu>
 				<p:menu>
@@ -46,7 +44,7 @@
 							action="#{loginBean.consultTrainees()}"
 							icon="ui-icon-arrowrefresh-1-w" />
 					</p:submenu>
-					
+
 					<p:submenu label="Non-Ajax" styleClass="btn btn-large">
 						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close"
 							styleClass="btn btn-large" />
@@ -79,8 +77,7 @@
 						<p:menuitem value="Edit Profile" url="/Profile.jsf"
 							icon="ui-icon-arrowrefresh-1-w" />
 
-						<p:menuitem value="Disable"
-							action="#{loginBean.DisableAccount()}"
+						<p:menuitem value="Disable" action="#{loginBean.DisableAccount()}"
 							icon="ui-icon-locked" />
 
 						<f:facet name="options">

@@ -1,4 +1,3 @@
-
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -57,7 +56,7 @@
 								label="answer" /> -->
 
 							<h:outputText value="TraineeFN: *" />
-							<p:inputText value="#{wizard.fname}"
+							<p:inputText value="#{wizard.idTrainee}"
 								required="true" label="Trainee" />
 							<h:outputText value="key *" />
 							<p:inputText value="#{wizard.kword}" required="true"
@@ -76,15 +75,15 @@
 								<h:outputText value="Desc " />
 								<h:outputText value="#{wizard.descriptionQ}"
 									styleClass="outputLabel" />
-								<!-- <h:outputText value="Trainee " />
-								<h:outputText value="#{wizard.trainee.firstName}"
-									styleClass="outputLabel" /> -->
+								<h:outputText value="Trainee " />
+								<h:outputText value="#{wizard.idTrainee}"
+									styleClass="outputLabel" />
 
 								<h:outputText value="answer " />
 								<h:outputText value="#{wizard.kword}" styleClass="outputLabel" />
 
-								<h:outputText value="fname " />
-								<h:outputText value="#{wizard.fname}" styleClass="outputLabel" />
+								<!-- <h:outputText value="fname " />
+								<h:outputText value="#{wizard.fname}" styleClass="outputLabel" /> -->
 
 								<h:outputText value="Type " />
 								<h:outputText value="#{wizard.type}" styleClass="outputLabel" />

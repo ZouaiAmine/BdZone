@@ -97,6 +97,14 @@ public class TraineeMB implements Serializable {
 		return "/User/admin/userList?faces-redirect=true";
 	}
 	
+	public String AddQuestionByCateg() {
+		return "/questions/questionsList.jsf?faces-redirect=true";
+	}
+	
+	public String ListerQuestions() {
+		
+		return "/User/admin/ListQuestions?faces-redirect=true";
+	}
 
 	public void askQuestion() {
 	

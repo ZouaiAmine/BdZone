@@ -36,12 +36,12 @@ public class Wizard implements Serializable {
      private Answer answer ;
      private String kword ;
     private String fname ;
-     
+     private int idTrainee ;
      private Keyword keyword ;
      
     private boolean skip;
     private CategoryType type ;
-    
+   
     @EJB
      QuestionsRemote questionsRemote ;
    
@@ -56,11 +56,11 @@ public class Wizard implements Serializable {
     	
 		Question qtion= new Question() ;
 		//qtion.setIdQuestion(idQtion);
-		
-		trainee.setFirstName(fname);
-		qtion.setTrainee(trainee);
+		Trainee traineeee = new Trainee() ;
+	traineeee.setFirstName(fname);
+	traineeee.setId(idTrainee);
+	qtion.setTrainee(traineeee);
 		qtion.setType(type);
-	
 		//qtion.setAnswers(answers);
 		qtion.setAnswer(answer);
 		qtion.setKword(kword);
@@ -166,6 +166,16 @@ public class Wizard implements Serializable {
 	public void setFname(String fname) {
 		this.fname = fname;
 	}
+
+	public int getIdTrainee() {
+		return idTrainee;
+	}
+
+	public void setIdTrainee(int idTrainee) {
+		this.idTrainee = idTrainee;
+	}
+
+
 
 
 }
