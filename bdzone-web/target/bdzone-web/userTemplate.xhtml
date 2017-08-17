@@ -81,8 +81,10 @@
 							icon="ui-icon-locked" />
 
 						<f:facet name="options">
-							<p:inputText style="margin-right:10px" placeholder="Search" />
-							<p:commandButton action="#{questionMB.deleteQuestion()}"
+							<p:inputText  style="margin-right:10px" placeholder="Search"  />
+							<h:inputText value="#{dtBasicView.kword}" />
+							<h:outputText value="#{dtBasicView.kword}" />
+							<p:commandButton action="#{traineeMB.searchQuestionbyKword()}"
 								value="Search" icon="ui-icon-extlink" />
 
 

@@ -33,7 +33,6 @@ public class TraineeMB implements Serializable {
 	private List<Trainee> trainees;
 	//Trainee trainee;
 //	@ManagedProperty(value = "#{CategoryMB}")
-//	private CategoryMB gererCateg ;
 	private List<Category> categories1;
 	private List<String> categories;
 	private Category category ;
@@ -48,6 +47,7 @@ public class TraineeMB implements Serializable {
 	private String firstName ;
 	private String email ;
 	private CategoryType type ;
+	private String keyword ;
 	//private List<CategoryType> types ;
 	
 	@PostConstruct
@@ -128,7 +128,10 @@ public class TraineeMB implements Serializable {
 		
 	}
 	
-	
+	public String searchQuestionbyKword() {
+		questionsRemote.findquestionByKeyword(keyword);
+		return "/User/trainee/ListQuestionsSe.jsf?faces-redirect=true" ;
+	}
 	
 //	
 //	public String update() {
@@ -315,6 +318,14 @@ public class TraineeMB implements Serializable {
 
 	public void setType(CategoryType type) {
 		this.type = type;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 }

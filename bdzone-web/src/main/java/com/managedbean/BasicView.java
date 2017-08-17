@@ -10,12 +10,14 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import entities.CategoryType;
+import entities.Keyword;
 import entities.Question;
 import entities.SuperVisor;
 import entities.Trainee;
 
 import services.adminmanagement.AdminManagementRemote;
 import services.traineemanagment.TraineeManagementRemote;
+import services.usermanagement.QuestionsRemote;
 
 @ManagedBean(name = "dtBasicView")
 @ViewScoped
@@ -25,6 +27,7 @@ public class BasicView {
 	private List<SuperVisor> superVisors;
 	private List<Trainee> trainees;
 	private List<Question> questions;
+	private List<Question> questionsSee;
 
 	@EJB
 	AdminManagementRemote adminManagementRemote;
@@ -32,13 +35,16 @@ public class BasicView {
 	@EJB
 	TraineeManagementRemote traineeManagementRemote;
 	
-
+	@EJB
+	QuestionsRemote questionsRemote ;
+	
+	private Question questionSe ;
 	private CategoryType categoryType ;
 	private Question question;
 	private Trainee trainee;
 	private SuperVisor superVisor;
 	private List<String> images;
-
+	private String kword ;
 	@PostConstruct
 	public void init() {
 		superVisor = new SuperVisor();
@@ -53,6 +59,11 @@ public class BasicView {
 		questions = new ArrayList<>();
 		questions = adminManagementRemote.afficherQuestions();
 
+		questionSe = new Question();
+		questionsSee = new ArrayList<>();
+		questionsSee = questionsRemote.findquestionByKeyword(kword);
+
+		
 		images = new ArrayList<String>();
 		for (int i = 1; i <= 12; i++) {
 			images.add("nature" + i + ".jpg");
@@ -123,6 +134,32 @@ public class BasicView {
 	public void setCategoryType(CategoryType categoryType) {
 		this.categoryType = categoryType;
 	}
+
+	public List<Question> getQuestionsSee() {
+		return questionsSee;
+	}
+
+	public void setQuestionsSee(List<Question> questionsSee) {
+		this.questionsSee = questionsSee;
+	}
+
+	public Question getQuestionSe() {
+		return questionSe;
+	}
+
+	public void setQuestionSe(Question questionSe) {
+		this.questionSe = questionSe;
+	}
+
+	public String getKword() {
+		return kword;
+	}
+
+	public void setKword(String kword) {
+		this.kword = kword;
+	}
+
+
 
 	//
 	// public String close(SuperVisor u) {

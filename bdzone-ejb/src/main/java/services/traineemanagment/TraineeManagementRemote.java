@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
+import entities.CategoryType;
 import entities.Keyword;
 import entities.Question;
 
@@ -31,5 +32,13 @@ public interface TraineeManagementRemote {
 
 
 	List<Question> afficherQuestions2();
+
+
+
+	List<Question> findquestionByKeyword(String keyword);
+
+
+
+	List<Question> findquestionByCategType(CategoryType type);
 
 }

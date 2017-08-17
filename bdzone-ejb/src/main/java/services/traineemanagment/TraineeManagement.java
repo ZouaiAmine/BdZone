@@ -8,7 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-
+import entities.CategoryType;
 import entities.Keyword;
 import entities.Question;
 
@@ -59,6 +59,21 @@ public class TraineeManagement implements TraineeManagementRemote{
 		return query.getResultList();
 	}
 
+	@Override
+	public List<Question> findquestionByKeyword(String keyword) {
+		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.kword=:n", Question.class);
+		query.setParameter("n",keyword);
+
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Question> findquestionByCategType(CategoryType type) {
+		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.type=:n", Question.class);
+		query.setParameter("n",type);
+
+		return query.getResultList();
+	}
 	
 	@Override
 	public List<Question> afficherQuestions() {

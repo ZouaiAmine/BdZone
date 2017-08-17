@@ -56,8 +56,8 @@
 								label="answer" /> -->
 
 							<h:outputText value="TraineeFN: *" />
-							<p:inputText value="#{wizard.idTrainee}"
-								required="true" label="Trainee" />
+							<p:inputText value="#{wizard.idTrainee}" required="true"
+								label="Trainee" />
 							<h:outputText value="key *" />
 							<p:inputText value="#{wizard.kword}" required="true"
 								label="Trainee" />
@@ -112,8 +112,15 @@
                     </h:panelGrid> -->
 						</h:panelGrid>
 
-						<p:commandButton value="Submit" action="#{wizard.askQuestion()}"
-							update="growl" process="@this" />
+						<p:remoteCommand name="rc" update="msgs"
+							actionListener="#{wizard.execute}" />
+
+						<p:growl id="msgs" showDetail="true" />
+						<p:commandButton type="button" onclick="rc()" value="Execute"
+							action="#{wizard.askQuestion()}" update="growl" process="@this" />
+
+						<!-- <p:commandButton value="Submit" action="#{wizard.askQuestion()}"
+							update="growl" process="@this" /> -->
 					</p:panel>
 				</p:tab>
 			</p:wizard>
