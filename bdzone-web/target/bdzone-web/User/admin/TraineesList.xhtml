@@ -87,26 +87,38 @@
 			
 		
 	</ui:define> -->
-	
-		<ui:define name="content">
+
+	<ui:define name="content">
 		<!-- lister les employes -->
 		<h:form>
 			<h:dataTable rendered="#{traineeMB.renderList}" border="2"
 				value="#{traineeMB.trainees}" var="e">
 				<f:facet name="Liste d'trainees"></f:facet>
 				<h:column>
-					<f:facet name="header">CIN</f:facet>
+					<f:facet name="header">EMail</f:facet>
 					<h:outputText value="#{e.EMail}" />
 				</h:column>
 				<h:column>
-					<f:facet name="header">nom</f:facet>
+					<f:facet name="header">Id</f:facet>
+					<h:outputText value="#{e.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">university</f:facet>
+					<h:outputText value="#{e.university}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">LastName</f:facet>
 					<h:outputText value="#{e.lastName}" />
 				</h:column>
-				<!-- <h:column>
-					<f:facet name="header">demissionner</f:facet>
-					<h:commandButton action="#{gererEmployeBean.demissionner(e)}"
-						value="demissionner" />
-				</h:column> -->
+				<h:column>
+					<f:facet name="header">FirstName</f:facet>
+					<h:outputText value="#{e.firstName}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">End Internship</f:facet>
+					<h:commandButton action="#{loginBean.EndInternship()}"
+						value="End Internship" />
+				</h:column>
 				<h:column>
 					<f:facet name="header">Mise a jour</f:facet>
 					<h:commandButton value="mise à jour">
@@ -130,13 +142,19 @@
 		<!-- ajouter un empl -->
 		<h:form rendered="#{traineeMB.renderAddForm}">
 			<h:panelGrid columns="2">
-				<h:outputLabel value="CIN" />
+				<h:outputLabel value="Email" />
 				<h:inputText value="#{traineeMB.trainee.EMail}" />
 
-				<h:outputLabel value="login" />
+				<h:outputLabel value="username" />
+				<h:inputText value="#{traineeMB.trainee.login}" />
+				
+				<h:outputLabel value="password" />
+				<h:inputText value="#{traineeMB.trainee.password}" />
+
+				<h:outputLabel value="firstName" />
 				<h:inputText value="#{traineeMB.trainee.firstName}" />
 
-				<h:outputLabel value="nom" />
+				<h:outputLabel value="LastName" />
 				<h:inputText value="#{traineeMB.trainee.lastName}" />
 				<h:commandButton action="#{traineeMB.ajouterTrainee()}"
 					value="Ajouter" />
@@ -144,19 +162,18 @@
 		</h:form>
 		<!-- modifier un emplo -->
 		<h:form rendered="#{traineeMB.renderUpdateForm}">
-					<h:panelGrid columns="2">
-						<h:outputLabel value="CIN" />
-						<h:inputText value="#{traineeMB.trainee.EMail}" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="CIN" />
+				<h:inputText value="#{traineeMB.trainee.EMail}" />
 
-						<h:outputLabel value="login" />
-						<h:inputText value="#{traineeMB.trainee.firstName}" />
-						<h:outputLabel value="nom" />
-						<h:inputText value="#{traineeMB.trainee.lastName}" />
-						<h:commandButton action="#{traineeMB.update()}"
-							value="Modifier" />
-					</h:panelGrid>
-				</h:form>
+				<h:outputLabel value="login" />
+				<h:inputText value="#{traineeMB.trainee.firstName}" />
+				<h:outputLabel value="nom" />
+				<h:inputText value="#{traineeMB.trainee.lastName}" />
+				<h:commandButton action="#{traineeMB.update()}" value="Modifier" />
+			</h:panelGrid>
+		</h:form>
 
 	</ui:define>
-	
+
 </ui:composition>

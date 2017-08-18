@@ -19,34 +19,34 @@
 		</p:layoutUnit>
 
 
-		<p:layoutUnit position="west" size="200" header="Menu"
+		<p:layoutUnit position="west" size="270" header="Menu"
 			resizable="false" closable="false" collapsible="false">
 			<h:form>
 
-				<p:menu toggleable="true" width="200">
-					<p:submenu label="Users">
-						<p:menuitem value="Action On User"
-							action="#{loginBean.consultSupervisors()}" icon="ui-icon-disk" />
-						<p:menuitem value="Consult User List"
-							action="#{loginBean.consultSupervisors()}"
-							icon="ui-icon-arrowrefresh-1-w" />
-						<p:menuitem value="Consult Tree Service"
-							action="#{loginBean.consultSupervisors()}"
-							icon="ui-icon-arrowrefresh-1-w" />
+				<p:menu toggleable="true" width="300">
+
+					<p:submenu label="Consult Users">
+						<p:menuitem value="Consult Supervisors List"
+							action="#{loginBean.consultSupervisors()}" />
+						<p:menuitem value="Consult Trainees List"
+							action="#{loginBean.consultTrainees()}" />
+						<p:menuitem value="Consult Questions List"
+							action="#{traineeMB.ListerQuestions()}" />
 					</p:submenu>
 				</p:menu>
 				<p:menu>
-					<p:submenu label="Traines">
-						<p:menuitem value="Action On User"
-							action="#{loginBean.consultTrainees()}" icon="ui-icon-disk" />
-						<p:menuitem value="Consult Trainees List"
-							action="#{loginBean.consultTrainees()}"
-							icon="ui-icon-arrowrefresh-1-w" />
-						<p:menuitem value="Consult Tree Service"
-							action="#{loginBean.consultTrainees()}"
-							icon="ui-icon-arrowrefresh-1-w" />
+					<p:submenu label="Action on Users">
+						<p:menuitem value="Add Supervisors"
+							action="#{subscribtionBean.Subscribe()}" icon="ui-icon-plus
+ " />
+						<p:menuitem value="Add Trainees"
+							action="#{subscribtionBean.Subscribe()}" icon="ui-icon-plus
+ " />
+						<p:menuitem value="Add Questions"
+							action="#{traineeMB.AddQuestionByCateg()}" icon="ui-icon-plus
+ " />
 					</p:submenu>
-					
+
 					<p:submenu label="Non-Ajax" styleClass="btn btn-large">
 						<p:menuitem value="Delete" ajax="false" icon="ui-icon-close"
 							styleClass="btn btn-large" />
@@ -79,8 +79,7 @@
 						<p:menuitem value="Edit Profile" url="/Profile.jsf"
 							icon="ui-icon-arrowrefresh-1-w" />
 
-						<p:menuitem value="Disable"
-							action="#{loginBean.DisableAccount()}"
+						<p:menuitem value="Disable" action="#{loginBean.DisableAccount()}"
 							icon="ui-icon-locked" />
 
 						<f:facet name="options">

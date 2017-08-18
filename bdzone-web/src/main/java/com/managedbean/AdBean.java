@@ -28,6 +28,16 @@ public class AdBean implements Serializable {
 	public void init() {
 		
 	}
+
+	public String home() {
+		return "/User/admin/acceuil.jsf?faces-redirect=true" ;
+	}
+	
+	public String ajouterTrainee() {
+		
+		adminManagementRemote.ajouterTrainee(trainee);
+		return "/User/admin/userList?faces-redirect=true";
+	}
 	
 	public Trainee search() {
 		

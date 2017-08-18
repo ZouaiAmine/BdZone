@@ -57,10 +57,10 @@
 
 							<h:outputText value="TraineeFN: *" />
 							<p:inputText value="#{wizard.idTrainee}" required="true"
-								label="Trainee" />
+								/>
 							<h:outputText value="key *" />
 							<p:inputText value="#{wizard.kword}" required="true"
-								label="Trainee" />
+								/>
 
 
 						</h:panelGrid>
@@ -72,14 +72,14 @@
 						<h:panelGrid id="confirmation" columns="3"
 							columnClasses="grid,grid,grid">
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Desc " />
+								<h:outputText value="Description " />
 								<h:outputText value="#{wizard.descriptionQ}"
 									styleClass="outputLabel" />
 								<h:outputText value="Trainee " />
 								<h:outputText value="#{wizard.idTrainee}"
 									styleClass="outputLabel" />
 
-								<h:outputText value="answer " />
+								<h:outputText value="Keyword " />
 								<h:outputText value="#{wizard.kword}" styleClass="outputLabel" />
 
 								<!-- <h:outputText value="fname " />
@@ -111,17 +111,17 @@
                         <h:outputText />
                     </h:panelGrid> -->
 						</h:panelGrid>
-
-						<p:remoteCommand name="rc" update="msgs"
-							actionListener="#{wizard.execute}" />
-
-						<p:growl id="msgs" showDetail="true" />
-						<p:commandButton type="button" onclick="rc()" value="Execute"
-							action="#{wizard.askQuestion()}" update="growl" process="@this" />
-
-						<!-- <p:commandButton value="Submit" action="#{wizard.askQuestion()}"
-							update="growl" process="@this" /> -->
 					</p:panel>
+					<p:remoteCommand name="rc" update="msgs"
+						actionListener="#{wizard.execute}" />
+
+					<p:growl id="msgs" showDetail="true" />
+					<p:commandButton type="button" onclick="rc()" value="Execute"
+						action="#{wizard.askQuestion()}" update="growl" process="@this" />
+
+					<!-- <p:commandButton value="Submit" action="#{wizard.askQuestion()}"
+							update="growl" process="@this" /> -->
+
 				</p:tab>
 			</p:wizard>
 

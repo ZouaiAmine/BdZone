@@ -95,6 +95,7 @@ public class QuestionMB {
 
 		
 		
+		
 //		public String AffecterCategorieQuestion() {
 //			
 //			adminManagementRemote.

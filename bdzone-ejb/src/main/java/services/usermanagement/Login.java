@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
-
+import entities.Trainee;
 import entities.User;
 
 
@@ -46,6 +46,13 @@ public class Login implements LoginRemote, LoginLocal {
 		u.setBaned(true);
 		entityManager.merge(u);
 		
+	}
+	
+	@Override
+	public void DeleteTrainee(Trainee trainee) {
+
+		entityManager.remove(entityManager.merge(trainee));
+
 	}
 	
 

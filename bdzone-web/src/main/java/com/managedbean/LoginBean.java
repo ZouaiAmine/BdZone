@@ -12,6 +12,8 @@ import entities.Admin;
 import entities.SuperVisor;
 import entities.Trainee;
 import entities.User;
+import services.adminmanagement.AdminManagementRemote;
+import services.traineemanagment.TraineeManagementRemote;
 //import services.BDmanagement.LoginRemote;
 import services.usermanagement.LoginRemote;
 
@@ -25,6 +27,7 @@ public class LoginBean{
 	private String login;
 	private String password;
 	private  User user;
+	private Trainee trainee ;
 	//private Principal principal; 
 	
 
@@ -38,6 +41,12 @@ public class LoginBean{
 	@EJB
 	LoginRemote loginRemote ;
 	
+	@EJB
+	AdminManagementRemote adminManagementRemote ;
+	
+	@EJB
+	TraineeManagementRemote traineeManagementRemote ;
+	
 	public String logout() {
 
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
@@ -47,6 +56,12 @@ public class LoginBean{
 	public String DisableAccount()
 	{
 		loginRemote.DisableAccount(user);
+		return "/User/admin/TraineesList?faces-redirect=true";
+	}
+	
+	public String EndInternship()
+	{
+		loginRemote.DeleteTrainee(trainee);
 		return "login/Disabled?faces-redirect=true";
 		
 		
@@ -77,7 +92,7 @@ public class LoginBean{
 		if (user instanceof Admin) {
 			setLogin(user.getLogin());
 			
-			return "/User/admin/NewFile?faces-redirect=true";
+			return "/User/admin/acceuil?faces-redirect=true";
 		} else if (user instanceof SuperVisor) {
 			setLogin(user.getLogin());
 			return "/User/superVisor/acceuil?faces-redirect=true";
@@ -132,6 +147,14 @@ public class LoginBean{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Trainee getTrainee() {
+		return trainee;
+	}
+
+	public void setTrainee(Trainee trainee) {
+		this.trainee = trainee;
 	}
 
 

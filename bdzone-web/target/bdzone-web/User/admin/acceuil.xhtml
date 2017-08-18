@@ -6,23 +6,19 @@
 	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j"
 	template="/User/admin/NewFile.xhtml">
 
-	<!-- <ui:define name="title">Admin Page </ui:define> -->
+	<!-- <ui:define name="title"><ui:insert>Admin: #{loginBean.user.firstName}</ui:insert> </ui:define> -->
 
 	<!-- <h1>hello admin:#{loginBean.user.firstName} </h1> -->
-	<!-- 
-<h:form>
-			<h:commandButton action="#{loginBean.logout()}" value="log-out" />
-		</h:form>
-			 -->
+	
 	<ui:define name="content">
 
 		<h:commandButton action="#{loginBean.logout()}" value="logout" />
 
-		<h3>Shuffle</h3>
+		<h3>Hello Mr #{loginBean.user.firstName}</h3>
 		<p:imageSwitch effect="shuffle">
-			<ui:repeat value="#{dtBasicView.images}" var="image">
+			<ui:repeat  value="#{dtBasicView.images}" var="image">
 				<!-- <p:graphicImage name="/demo/images/nature/#{image}" /> -->
-				<img src="../../images/businessdecision.png" />
+				<img hspace="400" src="../../images/businessdecision.png" />
 				<!-- <img src="../../images/dev.jpg" /> -->
 			</ui:repeat>
 		</p:imageSwitch>
@@ -39,17 +35,7 @@
 		</div>
 		
 	</ui:define>
-	<!-- 
-	<ui:define name="content1">
-		<ui:include src="/User/admin/addCategory.xhtml" />
-		
-	</ui:define>
 	
-	<ui:define name="content2">
-		<ui:include src="/User/admin/addSpervisor.xhtml" />
-	
-	</ui:define>
- -->
 
 
 </ui:composition>

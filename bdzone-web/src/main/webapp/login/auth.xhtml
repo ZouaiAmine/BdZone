@@ -6,17 +6,21 @@
 	template="/login/TemplateLogin.xhtml">
 	<ui:define name="content">
 		<h:form id="auth-form">
+		<h:commandButton action="#{adBean.home()}" value="Home"
+			styleClass="btn btn-large" />
+			<p:separator></p:separator>
 			<p:growl autoUpdate="true"></p:growl>
-			   <h:panelGrid>
-			 
-			    <p:outputLabel for="type" value="Type:" />
-        <p:selectOneRadio id="type" value="#{subscribtionBean.type}">
-            <f:selectItem itemLabel="Trainee" itemValue="Traine" />
-            <f:selectItem itemLabel="SuperVisor" itemValue="Supervisor" />
-            
-        </p:selectOneRadio></h:panelGrid>
+			<h:panelGrid>
+
+				<p:outputLabel for="type" value="Type:" />
+				<p:selectOneRadio id="type" value="#{subscribtionBean.type}">
+					<f:selectItem itemLabel="Trainee" itemValue="Traine" />
+					<f:selectItem itemLabel="SuperVisor" itemValue="Supervisor" />
+
+				</p:selectOneRadio>
+			</h:panelGrid>
 			<div class="col.s12 input-field">
-			              
+
 				<h:inputText id="username" required="true"
 					requiredMessage="username is required"
 					value="#{subscribtionBean.login}" />
@@ -50,27 +54,32 @@
 			<div class="col.s12 input-field">
 				<!-- <h:outputLabel value="type" /> -->
 				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-				
+
 				</h:panelGrid>
 			</div>
 			<div class="col.s12 input-field">
-				
-				
-					
+
+
+
 				<p:commandButton action="#{subscribtionBean.regtr()}"
-					value="Register" styleClass="btn btn-large"/>
-				<p:resizable></p:resizable>	
-					
+					value="Register" styleClass="btn btn-large" />
+				<p:resizable></p:resizable>
+
 				<!-- <h:remoteCommand name="rc" update="msgs"
 					actionListener="#{remotemsg.execute()}" /> -->
 
 				<p:growl id="msgs" showDetail="true" />
-				<p:commandButton action="#{subscribtionBean.regtr()}" type="button" onclick="rc()" value="Register" styleClass="btn btn-large"
+				<p:commandButton action="#{subscribtionBean.regtr()}" type="button"
+					onclick="rc()" value="Register" styleClass="btn btn-large"
 					icon="ui-icon-refresh" />
+
 
 			</div>
 
 
+
 		</h:form>
+		
+
 	</ui:define>
 </ui:composition>

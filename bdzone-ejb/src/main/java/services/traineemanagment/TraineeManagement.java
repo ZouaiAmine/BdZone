@@ -2,7 +2,6 @@ package services.traineemanagment;
 
 import java.util.List;
 
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,28 +11,26 @@ import entities.CategoryType;
 import entities.Keyword;
 import entities.Question;
 
-
 /**
  * Session Bean implementation class TraineeManagement
  */
 @Stateless
-public class TraineeManagement implements TraineeManagementRemote{
+public class TraineeManagement implements TraineeManagementRemote {
 
-    /**
-     * Default constructor. 
-     */
-    public TraineeManagement() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public TraineeManagement() {
+		// TODO Auto-generated constructor stub
+	}
 
-    @PersistenceContext(unitName="bdzone-ejb")
-	EntityManager entityManager ;
-    
-    
-    @Override
+	@PersistenceContext(unitName = "bdzone-ejb")
+	EntityManager entityManager;
+
+	@Override
 	public void ajouterQuestion(Question question) {
-		
-		 entityManager.persist(question);
+
+		entityManager.persist(question);
 	}
 
 	@Override
@@ -44,16 +41,18 @@ public class TraineeManagement implements TraineeManagementRemote{
 
 	}
 
-		@Override
-		public Question chercherQuestionParId(int id) {
+	@Override
+	public Question chercherQuestionParId(int id) {
 
 		return entityManager.find(Question.class, id);
 
 	}
-//
+
+	//
 	@Override
 	public List<Keyword> findKeywordByDescription(Keyword keyword) {
-		TypedQuery<Keyword> query = entityManager.createQuery("Select l from Keyword l where l.description=:n", Keyword.class);
+		TypedQuery<Keyword> query = entityManager.createQuery("Select l from Keyword l where l.description=:n",
+				Keyword.class);
 		query.setParameter("n", keyword.getDescription());
 
 		return query.getResultList();
@@ -61,33 +60,32 @@ public class TraineeManagement implements TraineeManagementRemote{
 
 	@Override
 	public List<Question> findquestionByKeyword(String keyword) {
-		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.kword=:n", Question.class);
-		query.setParameter("n",keyword);
+		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.kword=:n",
+				Question.class);
+		query.setParameter("n", keyword);
 
 		return query.getResultList();
 	}
 
 	@Override
 	public List<Question> findquestionByCategType(CategoryType type) {
-		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.type=:n", Question.class);
-		query.setParameter("n",type);
+		TypedQuery<Question> query = entityManager.createQuery("Select l from Question l where l.type=:n",
+				Question.class);
+		query.setParameter("n", type);
 
 		return query.getResultList();
 	}
-	
+
 	@Override
 	public List<Question> afficherQuestions() {
-		TypedQuery<Question> query =  entityManager.createQuery("select h from Question h", Question.class);
+		TypedQuery<Question> query = entityManager.createQuery("select h from Question h", Question.class);
 		return query.getResultList();
 	}
-	
+
 	@Override
 	public List<Question> afficherQuestions2() {
-		TypedQuery<Question> query =  entityManager.createQuery("select h from Question h", Question.class);
+		TypedQuery<Question> query = entityManager.createQuery("select h from Question h", Question.class);
 		return query.getResultList();
 	}
 
-
-    
-    
 }

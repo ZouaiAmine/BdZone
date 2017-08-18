@@ -42,10 +42,10 @@ public class SupervisorMB implements Serializable {
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("new gererEmplBean!!!!!!!!!!!!!!!!");
+
 		superVisors = new ArrayList<SuperVisor>();
 		superVisor = new SuperVisor();
-		//System.out.println("id supervisor " + gererCateg.getCategory().getId_Catg());
+		
 		superVisors = adminManagementRemote.listerSupervisorsCateg(superVisor.getCategory());
 		renderAddForm = false;
 		setRenderUpdateForm(false);
@@ -60,8 +60,7 @@ public class SupervisorMB implements Serializable {
 	}
 
 	public String demissionner(SuperVisor superVisor) {
-		System.out.println("in !!!!!");
-		System.out.println("employe "+superVisor.getFirstName());
+		
 		adminManagementRemote.DisableAccount(superVisor);
 
 		return "/User/admin/supervisorsList?faces-redirect=true";
@@ -73,13 +72,13 @@ public class SupervisorMB implements Serializable {
 		System.out.println("cin  "+superVisor.getFirstName());
 		adminManagementRemote.modifierSupervisor(superVisor);
 
-		return "/User/admin/userList?faces-redirect=true";
+		return "/User/admin/supervisorsList?faces-redirect=true";
 	}
 	
 	public String ajouterSup() {
 		
 		adminManagementRemote.ajouterSupervisor(superVisor);
-		return "/User/admin/userList?faces-redirect=true";
+		return "/User/admin/supervisorsList?faces-redirect=true";
 	}
 	
 	public String ajouter() {

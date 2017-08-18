@@ -54,4 +54,6 @@ public interface AdminManagementRemote {
 	List<Question> listerQuestionByCateg(CategoryType categoryType);
 
 	List<Question> afficherQuestions();
+
+	void DeleteTrainee(Trainee trainee);
 }

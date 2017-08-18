@@ -73,7 +73,7 @@ public class Wizard implements Serializable {
 	}
     
     public void execute() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Executed", "Using RemoteCommand."));
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Executed", "Question was added with success."));
     } 
     
     public boolean isSkip() {
